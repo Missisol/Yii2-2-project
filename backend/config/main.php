@@ -11,6 +11,7 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
+    'layout' => 'admin_lte/main',
     'modules' => [],
     'components' => [
         'request' => [
