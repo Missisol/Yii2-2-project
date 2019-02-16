@@ -43,6 +43,13 @@ return [
             'showScriptName' => false,
             'rules' => [
             ],
+          ],
+        'assetManager' => [
+          'bundles' => [
+            'dmstr\web\AdminLteAsset' => [
+              'skin' => 'skin-purple',
+            ],
+          ],
         ],
     ],
     'params' => $params,
