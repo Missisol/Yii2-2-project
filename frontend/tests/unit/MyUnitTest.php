@@ -26,7 +26,6 @@ class MyUnitTest extends \Codeception\Test\Unit
         'two' => 5,
         'three' => 7,
       ];
-
       $name = [
         0 => 'Vasya',
         1 => 'xxx',
@@ -38,7 +37,6 @@ class MyUnitTest extends \Codeception\Test\Unit
         'name' => $name,
         'email' => $email,
       ]);
-
       $username = [
         0 => 'Vasya',
         1 => 'xxx',
@@ -50,11 +48,11 @@ class MyUnitTest extends \Codeception\Test\Unit
 
       $this->assertEquals($var, 6, 'assertEquals');
 
-      $this->assertLessThan($var, 2, 'assertLessThen');
+      $this->assertLessThan($arr['two'], 2, 'assertLessThen');
 
       $this->assertAttributeEquals($username, 'name', $model);
       expect($email, $model->email)->equals('vvv@vvv');
 
-      $this->assertArrayHasKey(1, $username, 'Checking whether a key is an array');
+      $this->assertArrayHasKey('two', $arr, 'Checking whether a key is an array');
     }
 }
