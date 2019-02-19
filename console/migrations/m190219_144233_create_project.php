@@ -25,7 +25,6 @@ class m190219_144233_create_project extends Migration
 
       $this->addForeignKey('fk_project_user_cr', 'project', ['creator_id'], 'user', ['id']);
       $this->addForeignKey('fk_project_user_up', 'project', ['updater_id'], 'user', ['id']);
-
     }
 
     /**

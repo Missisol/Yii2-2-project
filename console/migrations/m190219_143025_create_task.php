@@ -29,7 +29,6 @@ class m190219_143025_create_task extends Migration
       $this->addForeignKey('fk_task_user_ex', 'task', ['executor_id'], 'user', ['id']);
       $this->addForeignKey('fk_task_user_cr', 'task', ['creator_id'], 'user', ['id']);
       $this->addForeignKey('fk_task_user_up', 'task', ['updater_id'], 'user', ['id']);
-
     }
 
     /**
