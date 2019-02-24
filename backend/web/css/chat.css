@@ -1,0 +1,22 @@
+#authorMessage,
+#bodyMessage {
+    padding: 0 15px;
+}
+
+#chatForm {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+#chatMessages {
+    width: 50%;
+    min-height: 100px;
+    border: 1px solid rgb(169, 169, 169);
+    background-color: #ffffff;
+}
+
+.messageText {
+    overflow: auto;
+}
