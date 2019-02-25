@@ -7,7 +7,7 @@
     "content-hash": "a134ffb7ff28ab6a9b7ab1ed34e851d7",
     "packages": [
         {
-            "name": "almasaeed2010/adminlte",
+            "sender": "almasaeed2010/adminlte",
             "version": "v2.x-dev",
             "source": {
                 "type": "git",
@@ -31,7 +31,7 @@
             ],
             "authors": [
                 {
-                    "name": "Abdullah Almsaeed",
+                    "sender": "Abdullah Almsaeed",
                     "email": "abdullah@almsaeedstudio.com"
                 }
             ],
@@ -51,7 +51,7 @@
             "time": "2018-07-15T18:58:18+00:00"
         },
         {
-            "name": "bower-asset/bootstrap",
+            "sender": "bower-asset/bootstrap",
             "version": "v3.4.0",
             "source": {
                 "type": "git",
@@ -72,7 +72,7 @@
             ]
         },
         {
-            "name": "bower-asset/inputmask",
+            "sender": "bower-asset/inputmask",
             "version": "3.3.11",
             "source": {
                 "type": "git",
@@ -93,7 +93,7 @@
             ]
         },
         {
-            "name": "bower-asset/jquery",
+            "sender": "bower-asset/jquery",
             "version": "3.3.1",
             "source": {
                 "type": "git",
@@ -111,7 +111,7 @@
             ]
         },
         {
-            "name": "bower-asset/punycode",
+            "sender": "bower-asset/punycode",
             "version": "v1.3.2",
             "source": {
                 "type": "git",
@@ -126,7 +126,7 @@
             "type": "bower-asset"
         },
         {
-            "name": "bower-asset/yii2-pjax",
+            "sender": "bower-asset/yii2-pjax",
             "version": "2.0.7.1",
             "source": {
                 "type": "git",
@@ -147,7 +147,7 @@
             ]
         },
         {
-            "name": "cboden/ratchet",
+            "sender": "cboden/ratchet",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -183,7 +183,7 @@
             ],
             "authors": [
                 {
-                    "name": "Chris Boden",
+                    "sender": "Chris Boden",
                     "email": "cboden@gmail.com",
                     "role": "Developer"
                 }
@@ -200,7 +200,7 @@
             "time": "2018-12-14T02:40:51+00:00"
         },
         {
-            "name": "cebe/markdown",
+            "sender": "cebe/markdown",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -242,7 +242,7 @@
             ],
             "authors": [
                 {
-                    "name": "Carsten Brandt",
+                    "sender": "Carsten Brandt",
                     "email": "mail@cebe.cc",
                     "homepage": "http://cebe.cc/",
                     "role": "Creator"
@@ -260,7 +260,7 @@
             "time": "2018-12-10T09:41:35+00:00"
         },
         {
-            "name": "cebe/yii2-gravatar",
+            "sender": "cebe/yii2-gravatar",
             "version": "1.1",
             "target-dir": "cebe/gravatar",
             "source": {
@@ -289,7 +289,7 @@
             ],
             "authors": [
                 {
-                    "name": "Carsten Brandt",
+                    "sender": "Carsten Brandt",
                     "email": "mail@cebe.cc",
                     "homepage": "http://cebe.cc/",
                     "role": "Core framework development"
@@ -303,7 +303,7 @@
             "time": "2013-12-10T17:49:58+00:00"
         },
         {
-            "name": "composer/installers",
+            "sender": "composer/installers",
             "version": "v1.6.0",
             "source": {
                 "type": "git",
@@ -345,7 +345,7 @@
             ],
             "authors": [
                 {
-                    "name": "Kyle Robinson Young",
+                    "sender": "Kyle Robinson Young",
                     "email": "kyle@dontkry.com",
                     "homepage": "https://github.com/shama"
                 }
@@ -423,7 +423,7 @@
             "time": "2018-08-27T06:10:37+00:00"
         },
         {
-            "name": "dmstr/yii2-adminlte-asset",
+            "sender": "dmstr/yii2-adminlte-asset",
             "version": "2.6.2",
             "source": {
                 "type": "git",
@@ -460,11 +460,11 @@
             ],
             "authors": [
                 {
-                    "name": "Tobias Munk",
+                    "sender": "Tobias Munk",
                     "email": "tobias@diemeisterei.de"
                 },
                 {
-                    "name": "Evgeniy Tkachenko",
+                    "sender": "Evgeniy Tkachenko",
                     "email": "et.coder@gmail.com"
                 }
             ],
@@ -483,7 +483,7 @@
             "time": "2018-07-24T14:47:13+00:00"
         },
         {
-            "name": "doctrine/lexer",
+            "sender": "doctrine/lexer",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -519,15 +519,15 @@
             ],
             "authors": [
                 {
-                    "name": "Roman Borschel",
+                    "sender": "Roman Borschel",
                     "email": "roman@code-factory.org"
                 },
                 {
-                    "name": "Guilherme Blanco",
+                    "sender": "Guilherme Blanco",
                     "email": "guilhermeblanco@gmail.com"
                 },
                 {
-                    "name": "Johannes Schmitt",
+                    "sender": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com"
                 }
             ],
@@ -543,7 +543,7 @@
             "time": "2018-10-21T19:22:05+00:00"
         },
         {
-            "name": "egulias/email-validator",
+            "sender": "egulias/email-validator",
             "version": "2.1.7",
             "source": {
                 "type": "git",
@@ -585,7 +585,7 @@
             ],
             "authors": [
                 {
-                    "name": "Eduardo Gulias Davis"
+                    "sender": "Eduardo Gulias Davis"
                 }
             ],
             "description": "A library for validating emails against several RFCs",
@@ -600,7 +600,7 @@
             "time": "2018-12-04T22:38:24+00:00"
         },
         {
-            "name": "evenement/evenement",
+            "sender": "evenement/evenement",
             "version": "v3.0.1",
             "source": {
                 "type": "git",
@@ -631,7 +631,7 @@
             ],
             "authors": [
                 {
-                    "name": "Igor Wiedler",
+                    "sender": "Igor Wiedler",
                     "email": "igor@wiedler.ch"
                 }
             ],
@@ -643,7 +643,7 @@
             "time": "2017-07-23T21:35:13+00:00"
         },
         {
-            "name": "ezyang/htmlpurifier",
+            "sender": "ezyang/htmlpurifier",
             "version": "v4.10.0",
             "source": {
                 "type": "git",
@@ -677,7 +677,7 @@
             ],
             "authors": [
                 {
-                    "name": "Edward Z. Yang",
+                    "sender": "Edward Z. Yang",
                     "email": "admin@htmlpurifier.org",
                     "homepage": "http://ezyang.com"
                 }
@@ -690,7 +690,7 @@
             "time": "2018-02-23T01:58:20+00:00"
         },
         {
-            "name": "fortawesome/font-awesome",
+            "sender": "fortawesome/font-awesome",
             "version": "v4.7.0",
             "source": {
                 "type": "git",
@@ -720,7 +720,7 @@
             ],
             "authors": [
                 {
-                    "name": "Dave Gandy",
+                    "sender": "Dave Gandy",
                     "email": "dave@fontawesome.io",
                     "homepage": "http://twitter.com/davegandy",
                     "role": "Developer"
@@ -738,7 +738,7 @@
             "time": "2016-10-24T15:52:54+00:00"
         },
         {
-            "name": "guzzlehttp/psr7",
+            "sender": "guzzlehttp/psr7",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -785,12 +785,12 @@
             ],
             "authors": [
                 {
-                    "name": "Michael Dowling",
+                    "sender": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
                 },
                 {
-                    "name": "Tobias Schultze",
+                    "sender": "Tobias Schultze",
                     "homepage": "https://github.com/Tobion"
                 }
             ],
@@ -808,7 +808,7 @@
             "time": "2018-12-28T01:59:01+00:00"
         },
         {
-            "name": "paragonie/random_compat",
+            "sender": "paragonie/random_compat",
             "version": "v9.99.99.x-dev",
             "source": {
                 "type": "git",
@@ -835,7 +835,7 @@
             ],
             "authors": [
                 {
-                    "name": "Paragon Initiative Enterprises",
+                    "sender": "Paragon Initiative Enterprises",
                     "email": "security@paragonie.com",
                     "homepage": "https://paragonie.com"
                 }
@@ -850,7 +850,7 @@
             "time": "2018-08-07T13:07:48+00:00"
         },
         {
-            "name": "psr/http-message",
+            "sender": "psr/http-message",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -883,7 +883,7 @@
             ],
             "authors": [
                 {
-                    "name": "PHP-FIG",
+                    "sender": "PHP-FIG",
                     "homepage": "http://www.php-fig.org/"
                 }
             ],
@@ -900,7 +900,7 @@
             "time": "2016-08-06T14:39:51+00:00"
         },
         {
-            "name": "ralouphie/getallheaders",
+            "sender": "ralouphie/getallheaders",
             "version": "3.0.2",
             "source": {
                 "type": "git",
@@ -932,7 +932,7 @@
             ],
             "authors": [
                 {
-                    "name": "Ralph Khattar",
+                    "sender": "Ralph Khattar",
                     "email": "ralph.khattar@gmail.com"
                 }
             ],
@@ -940,7 +940,7 @@
             "time": "2018-12-11T21:53:24+00:00"
         },
         {
-            "name": "ratchet/rfc6455",
+            "sender": "ratchet/rfc6455",
             "version": "0.2.4",
             "source": {
                 "type": "git",
@@ -974,7 +974,7 @@
             ],
             "authors": [
                 {
-                    "name": "Chris Boden",
+                    "sender": "Chris Boden",
                     "email": "cboden@gmail.com",
                     "role": "Developer"
                 }
@@ -989,7 +989,7 @@
             "time": "2018-05-02T14:52:00+00:00"
         },
         {
-            "name": "react/cache",
+            "sender": "react/cache",
             "version": "v0.5.0",
             "source": {
                 "type": "git",
@@ -1029,7 +1029,7 @@
             "time": "2018-06-25T12:52:40+00:00"
         },
         {
-            "name": "react/dns",
+            "sender": "react/dns",
             "version": "v0.4.16",
             "source": {
                 "type": "git",
@@ -1074,7 +1074,7 @@
             "time": "2018-11-11T11:21:13+00:00"
         },
         {
-            "name": "react/event-loop",
+            "sender": "react/event-loop",
             "version": "v1.1.0",
             "source": {
                 "type": "git",
@@ -1116,7 +1116,7 @@
             "time": "2019-02-07T16:19:49+00:00"
         },
         {
-            "name": "react/promise",
+            "sender": "react/promise",
             "version": "2.x-dev",
             "source": {
                 "type": "git",
@@ -1150,7 +1150,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jan Sorgalla",
+                    "sender": "Jan Sorgalla",
                     "email": "jsorgalla@gmail.com"
                 }
             ],
@@ -1162,7 +1162,7 @@
             "time": "2019-01-08T16:10:34+00:00"
         },
         {
-            "name": "react/promise-timer",
+            "sender": "react/promise-timer",
             "version": "v1.5.0",
             "source": {
                 "type": "git",
@@ -1198,7 +1198,7 @@
             ],
             "authors": [
                 {
-                    "name": "Christian Lück",
+                    "sender": "Christian Lück",
                     "email": "christian@lueck.tv"
                 }
             ],
@@ -1215,7 +1215,7 @@
             "time": "2018-06-13T16:45:37+00:00"
         },
         {
-            "name": "react/socket",
+            "sender": "react/socket",
             "version": "v1.2.0",
             "source": {
                 "type": "git",
@@ -1262,7 +1262,7 @@
             "time": "2019-01-07T14:10:13+00:00"
         },
         {
-            "name": "react/stream",
+            "sender": "react/stream",
             "version": "v1.1.0",
             "source": {
                 "type": "git",
@@ -1308,7 +1308,7 @@
             "time": "2019-01-01T16:15:09+00:00"
         },
         {
-            "name": "rmrevin/yii2-fontawesome",
+            "sender": "rmrevin/yii2-fontawesome",
             "version": "2.x-dev",
             "source": {
                 "type": "git",
@@ -1344,7 +1344,7 @@
             ],
             "authors": [
                 {
-                    "name": "Revin Roman",
+                    "sender": "Revin Roman",
                     "email": "roman@rmrevin.com",
                     "homepage": "https://rmrevin.com/"
                 }
@@ -1360,7 +1360,7 @@
             "time": "2017-04-03T14:19:13+00:00"
         },
         {
-            "name": "swiftmailer/swiftmailer",
+            "sender": "swiftmailer/swiftmailer",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -1405,10 +1405,10 @@
             ],
             "authors": [
                 {
-                    "name": "Chris Corbyn"
+                    "sender": "Chris Corbyn"
                 },
                 {
-                    "name": "Fabien Potencier",
+                    "sender": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 }
             ],
@@ -1422,7 +1422,7 @@
             "time": "2019-01-30T06:37:50+00:00"
         },
         {
-            "name": "symfony/http-foundation",
+            "sender": "symfony/http-foundation",
             "version": "3.4.x-dev",
             "source": {
                 "type": "git",
@@ -1463,11 +1463,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
+                    "sender": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -1476,7 +1476,7 @@
             "time": "2019-01-27T09:04:14+00:00"
         },
         {
-            "name": "symfony/polyfill-iconv",
+            "sender": "symfony/polyfill-iconv",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -1515,11 +1515,11 @@
             ],
             "authors": [
                 {
-                    "name": "Nicolas Grekas",
+                    "sender": "Nicolas Grekas",
                     "email": "p@tchwork.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -1535,7 +1535,7 @@
             "time": "2019-02-06T07:57:58+00:00"
         },
         {
-            "name": "symfony/polyfill-intl-idn",
+            "sender": "symfony/polyfill-intl-idn",
             "version": "v1.10.0",
             "source": {
                 "type": "git",
@@ -1576,11 +1576,11 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 },
                 {
-                    "name": "Laurent Bassin",
+                    "sender": "Laurent Bassin",
                     "email": "laurent@bassin.info"
                 }
             ],
@@ -1597,7 +1597,7 @@
             "time": "2018-09-30T16:36:12+00:00"
         },
         {
-            "name": "symfony/polyfill-mbstring",
+            "sender": "symfony/polyfill-mbstring",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -1636,11 +1636,11 @@
             ],
             "authors": [
                 {
-                    "name": "Nicolas Grekas",
+                    "sender": "Nicolas Grekas",
                     "email": "p@tchwork.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -1656,7 +1656,7 @@
             "time": "2019-02-06T07:57:58+00:00"
         },
         {
-            "name": "symfony/polyfill-php70",
+            "sender": "symfony/polyfill-php70",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -1696,11 +1696,11 @@
             ],
             "authors": [
                 {
-                    "name": "Nicolas Grekas",
+                    "sender": "Nicolas Grekas",
                     "email": "p@tchwork.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -1715,7 +1715,7 @@
             "time": "2019-02-06T07:57:58+00:00"
         },
         {
-            "name": "symfony/polyfill-php72",
+            "sender": "symfony/polyfill-php72",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -1751,11 +1751,11 @@
             ],
             "authors": [
                 {
-                    "name": "Nicolas Grekas",
+                    "sender": "Nicolas Grekas",
                     "email": "p@tchwork.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -1770,7 +1770,7 @@
             "time": "2019-02-06T07:57:58+00:00"
         },
         {
-            "name": "symfony/routing",
+            "sender": "symfony/routing",
             "version": "3.4.x-dev",
             "source": {
                 "type": "git",
@@ -1828,11 +1828,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
+                    "sender": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -1847,7 +1847,7 @@
             "time": "2019-02-21T10:18:37+00:00"
         },
         {
-            "name": "yiisoft/yii2",
+            "sender": "yiisoft/yii2",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -1893,46 +1893,46 @@
             ],
             "authors": [
                 {
-                    "name": "Qiang Xue",
+                    "sender": "Qiang Xue",
                     "email": "qiang.xue@gmail.com",
                     "homepage": "http://www.yiiframework.com/",
                     "role": "Founder and project lead"
                 },
                 {
-                    "name": "Alexander Makarov",
+                    "sender": "Alexander Makarov",
                     "email": "sam@rmcreative.ru",
                     "homepage": "http://rmcreative.ru/",
                     "role": "Core framework development"
                 },
                 {
-                    "name": "Maurizio Domba",
+                    "sender": "Maurizio Domba",
                     "homepage": "http://mdomba.info/",
                     "role": "Core framework development"
                 },
                 {
-                    "name": "Carsten Brandt",
+                    "sender": "Carsten Brandt",
                     "email": "mail@cebe.cc",
                     "homepage": "http://cebe.cc/",
                     "role": "Core framework development"
                 },
                 {
-                    "name": "Timur Ruziev",
+                    "sender": "Timur Ruziev",
                     "email": "resurtm@gmail.com",
                     "homepage": "http://resurtm.com/",
                     "role": "Core framework development"
                 },
                 {
-                    "name": "Paul Klimov",
+                    "sender": "Paul Klimov",
                     "email": "klimov.paul@gmail.com",
                     "role": "Core framework development"
                 },
                 {
-                    "name": "Dmitry Naumenko",
+                    "sender": "Dmitry Naumenko",
                     "email": "d.naumenko.a@gmail.com",
                     "role": "Core framework development"
                 },
                 {
-                    "name": "Boudewijn Vahrmeijer",
+                    "sender": "Boudewijn Vahrmeijer",
                     "email": "info@dynasource.eu",
                     "homepage": "http://dynasource.eu",
                     "role": "Core framework development"
@@ -1947,7 +1947,7 @@
             "time": "2019-02-15T13:05:25+00:00"
         },
         {
-            "name": "yiisoft/yii2-bootstrap",
+            "sender": "yiisoft/yii2-bootstrap",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -1981,20 +1981,20 @@
             ],
             "authors": [
                 {
-                    "name": "Paul Klimov",
+                    "sender": "Paul Klimov",
                     "email": "klimov.paul@gmail.com"
                 },
                 {
-                    "name": "Alexander Makarov",
+                    "sender": "Alexander Makarov",
                     "email": "sam@rmcreative.ru",
                     "homepage": "http://rmcreative.ru/"
                 },
                 {
-                    "name": "Antonio Ramirez",
+                    "sender": "Antonio Ramirez",
                     "email": "amigo.cobos@gmail.com"
                 },
                 {
-                    "name": "Qiang Xue",
+                    "sender": "Qiang Xue",
                     "email": "qiang.xue@gmail.com",
                     "homepage": "http://www.yiiframework.com/"
                 }
@@ -2007,7 +2007,7 @@
             "time": "2019-01-29T21:40:10+00:00"
         },
         {
-            "name": "yiisoft/yii2-composer",
+            "sender": "yiisoft/yii2-composer",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -2044,11 +2044,11 @@
             ],
             "authors": [
                 {
-                    "name": "Qiang Xue",
+                    "sender": "Qiang Xue",
                     "email": "qiang.xue@gmail.com"
                 },
                 {
-                    "name": "Carsten Brandt",
+                    "sender": "Carsten Brandt",
                     "email": "mail@cebe.cc"
                 }
             ],
@@ -2061,7 +2061,7 @@
             "time": "2018-08-25T10:44:34+00:00"
         },
         {
-            "name": "yiisoft/yii2-swiftmailer",
+            "sender": "yiisoft/yii2-swiftmailer",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -2095,7 +2095,7 @@
             ],
             "authors": [
                 {
-                    "name": "Paul Klimov",
+                    "sender": "Paul Klimov",
                     "email": "klimov.paul@gmail.com"
                 }
             ],
@@ -2113,7 +2113,7 @@
     ],
     "packages-dev": [
         {
-            "name": "behat/gherkin",
+            "sender": "behat/gherkin",
             "version": "v4.6.0",
             "source": {
                 "type": "git",
@@ -2154,7 +2154,7 @@
             ],
             "authors": [
                 {
-                    "name": "Konstantin Kudryashov",
+                    "sender": "Konstantin Kudryashov",
                     "email": "ever.zet@gmail.com",
                     "homepage": "http://everzet.com"
                 }
@@ -2172,7 +2172,7 @@
             "time": "2019-01-16T14:22:17+00:00"
         },
         {
-            "name": "codeception/base",
+            "sender": "codeception/base",
             "version": "2.5.x-dev",
             "source": {
                 "type": "git",
@@ -2245,7 +2245,7 @@
             ],
             "authors": [
                 {
-                    "name": "Michael Bodnarchuk",
+                    "sender": "Michael Bodnarchuk",
                     "email": "davert@mail.ua",
                     "homepage": "http://codegyre.com"
                 }
@@ -2262,7 +2262,7 @@
             "time": "2019-02-02T16:29:38+00:00"
         },
         {
-            "name": "codeception/phpunit-wrapper",
+            "sender": "codeception/phpunit-wrapper",
             "version": "6.5.x-dev",
             "source": {
                 "type": "git",
@@ -2300,7 +2300,7 @@
             ],
             "authors": [
                 {
-                    "name": "Davert",
+                    "sender": "Davert",
                     "email": "davert.php@resend.cc"
                 }
             ],
@@ -2308,7 +2308,7 @@
             "time": "2019-02-03T15:06:18+00:00"
         },
         {
-            "name": "codeception/stub",
+            "sender": "codeception/stub",
             "version": "2.0.4",
             "source": {
                 "type": "git",
@@ -2338,7 +2338,7 @@
             "time": "2018-07-26T11:55:37+00:00"
         },
         {
-            "name": "codeception/verify",
+            "sender": "codeception/verify",
             "version": "1.0.0",
             "source": {
                 "type": "git",
@@ -2370,7 +2370,7 @@
             ],
             "authors": [
                 {
-                    "name": "Michael Bodnarchuk",
+                    "sender": "Michael Bodnarchuk",
                     "email": "davert@codeception.com"
                 }
             ],
@@ -2378,7 +2378,7 @@
             "time": "2017-11-12T01:51:59+00:00"
         },
         {
-            "name": "doctrine/instantiator",
+            "sender": "doctrine/instantiator",
             "version": "1.0.x-dev",
             "source": {
                 "type": "git",
@@ -2418,7 +2418,7 @@
             ],
             "authors": [
                 {
-                    "name": "Marco Pivetta",
+                    "sender": "Marco Pivetta",
                     "email": "ocramius@gmail.com",
                     "homepage": "http://ocramius.github.com/"
                 }
@@ -2432,7 +2432,7 @@
             "time": "2018-09-01T02:07:49+00:00"
         },
         {
-            "name": "fzaninotto/faker",
+            "sender": "fzaninotto/faker",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -2470,7 +2470,7 @@
             ],
             "authors": [
                 {
-                    "name": "François Zaninotto"
+                    "sender": "François Zaninotto"
                 }
             ],
             "description": "Faker is a PHP library that generates fake data for you.",
@@ -2482,7 +2482,7 @@
             "time": "2019-01-09T06:29:58+00:00"
         },
         {
-            "name": "myclabs/deep-copy",
+            "sender": "myclabs/deep-copy",
             "version": "1.7.0",
             "source": {
                 "type": "git",
@@ -2527,7 +2527,7 @@
             "time": "2017-10-19T19:58:43+00:00"
         },
         {
-            "name": "phar-io/manifest",
+            "sender": "phar-io/manifest",
             "version": "1.0.1",
             "source": {
                 "type": "git",
@@ -2563,17 +2563,17 @@
             ],
             "authors": [
                 {
-                    "name": "Arne Blankerts",
+                    "sender": "Arne Blankerts",
                     "email": "arne@blankerts.de",
                     "role": "Developer"
                 },
                 {
-                    "name": "Sebastian Heuer",
+                    "sender": "Sebastian Heuer",
                     "email": "sebastian@phpeople.de",
                     "role": "Developer"
                 },
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
                     "role": "Developer"
                 }
@@ -2582,7 +2582,7 @@
             "time": "2017-03-05T18:14:27+00:00"
         },
         {
-            "name": "phar-io/version",
+            "sender": "phar-io/version",
             "version": "1.0.1",
             "source": {
                 "type": "git",
@@ -2610,17 +2610,17 @@
             ],
             "authors": [
                 {
-                    "name": "Arne Blankerts",
+                    "sender": "Arne Blankerts",
                     "email": "arne@blankerts.de",
                     "role": "Developer"
                 },
                 {
-                    "name": "Sebastian Heuer",
+                    "sender": "Sebastian Heuer",
                     "email": "sebastian@phpeople.de",
                     "role": "Developer"
                 },
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
                     "role": "Developer"
                 }
@@ -2629,7 +2629,7 @@
             "time": "2017-03-05T17:38:23+00:00"
         },
         {
-            "name": "phpdocumentor/reflection-common",
+            "sender": "phpdocumentor/reflection-common",
             "version": "1.0.1",
             "source": {
                 "type": "git",
@@ -2667,7 +2667,7 @@
             ],
             "authors": [
                 {
-                    "name": "Jaap van Otterdijk",
+                    "sender": "Jaap van Otterdijk",
                     "email": "opensource@ijaap.nl"
                 }
             ],
@@ -2683,7 +2683,7 @@
             "time": "2017-09-11T18:02:19+00:00"
         },
         {
-            "name": "phpdocumentor/reflection-docblock",
+            "sender": "phpdocumentor/reflection-docblock",
             "version": "4.3.0",
             "source": {
                 "type": "git",
@@ -2726,7 +2726,7 @@
             ],
             "authors": [
                 {
-                    "name": "Mike van Riel",
+                    "sender": "Mike van Riel",
                     "email": "me@mikevanriel.com"
                 }
             ],
@@ -2734,7 +2734,7 @@
             "time": "2017-11-30T07:14:17+00:00"
         },
         {
-            "name": "phpdocumentor/type-resolver",
+            "sender": "phpdocumentor/type-resolver",
             "version": "0.4.0",
             "source": {
                 "type": "git",
@@ -2774,14 +2774,14 @@
             ],
             "authors": [
                 {
-                    "name": "Mike van Riel",
+                    "sender": "Mike van Riel",
                     "email": "me@mikevanriel.com"
                 }
             ],
             "time": "2017-07-14T14:27:02+00:00"
         },
         {
-            "name": "phpspec/php-diff",
+            "sender": "phpspec/php-diff",
             "version": "v1.1.0",
             "source": {
                 "type": "git",
@@ -2811,7 +2811,7 @@
             ],
             "authors": [
                 {
-                    "name": "Chris Boulton",
+                    "sender": "Chris Boulton",
                     "homepage": "http://github.com/chrisboulton"
                 }
             ],
@@ -2819,7 +2819,7 @@
             "time": "2016-04-07T12:29:16+00:00"
         },
         {
-            "name": "phpspec/prophecy",
+            "sender": "phpspec/prophecy",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -2860,12 +2860,12 @@
             ],
             "authors": [
                 {
-                    "name": "Konstantin Kudryashov",
+                    "sender": "Konstantin Kudryashov",
                     "email": "ever.zet@gmail.com",
                     "homepage": "http://everzet.com"
                 },
                 {
-                    "name": "Marcello Duarte",
+                    "sender": "Marcello Duarte",
                     "email": "marcello.duarte@gmail.com"
                 }
             ],
@@ -2882,7 +2882,7 @@
             "time": "2018-12-18T15:40:51+00:00"
         },
         {
-            "name": "phpunit/php-code-coverage",
+            "sender": "phpunit/php-code-coverage",
             "version": "5.3.x-dev",
             "source": {
                 "type": "git",
@@ -2930,7 +2930,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
@@ -2945,7 +2945,7 @@
             "time": "2018-04-07T12:06:18+00:00"
         },
         {
-            "name": "phpunit/php-file-iterator",
+            "sender": "phpunit/php-file-iterator",
             "version": "1.4.x-dev",
             "source": {
                 "type": "git",
@@ -2978,7 +2978,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sb@sebastian-bergmann.de",
                     "role": "lead"
                 }
@@ -2992,7 +2992,7 @@
             "time": "2017-11-27T13:52:08+00:00"
         },
         {
-            "name": "phpunit/php-text-template",
+            "sender": "phpunit/php-text-template",
             "version": "1.2.1",
             "source": {
                 "type": "git",
@@ -3020,7 +3020,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
@@ -3033,7 +3033,7 @@
             "time": "2015-06-21T13:50:34+00:00"
         },
         {
-            "name": "phpunit/php-timer",
+            "sender": "phpunit/php-timer",
             "version": "1.0.x-dev",
             "source": {
                 "type": "git",
@@ -3069,7 +3069,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sb@sebastian-bergmann.de",
                     "role": "lead"
                 }
@@ -3082,7 +3082,7 @@
             "time": "2018-01-06T05:27:16+00:00"
         },
         {
-            "name": "phpunit/php-token-stream",
+            "sender": "phpunit/php-token-stream",
             "version": "2.0.x-dev",
             "source": {
                 "type": "git",
@@ -3119,7 +3119,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
                 }
             ],
@@ -3131,7 +3131,7 @@
             "time": "2017-11-27T08:47:38+00:00"
         },
         {
-            "name": "phpunit/phpunit",
+            "sender": "phpunit/phpunit",
             "version": "6.5.14",
             "source": {
                 "type": "git",
@@ -3200,7 +3200,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
@@ -3215,7 +3215,7 @@
             "time": "2019-02-01T05:22:47+00:00"
         },
         {
-            "name": "phpunit/phpunit-mock-objects",
+            "sender": "phpunit/phpunit-mock-objects",
             "version": "5.0.x-dev",
             "source": {
                 "type": "git",
@@ -3260,7 +3260,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
@@ -3274,7 +3274,7 @@
             "time": "2018-09-09T05:48:43+00:00"
         },
         {
-            "name": "psr/log",
+            "sender": "psr/log",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -3307,7 +3307,7 @@
             ],
             "authors": [
                 {
-                    "name": "PHP-FIG",
+                    "sender": "PHP-FIG",
                     "homepage": "http://www.php-fig.org/"
                 }
             ],
@@ -3321,7 +3321,7 @@
             "time": "2018-11-21T13:42:00+00:00"
         },
         {
-            "name": "sebastian/code-unit-reverse-lookup",
+            "sender": "sebastian/code-unit-reverse-lookup",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -3357,7 +3357,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
                 }
             ],
@@ -3366,7 +3366,7 @@
             "time": "2019-02-11T12:48:46+00:00"
         },
         {
-            "name": "sebastian/comparator",
+            "sender": "sebastian/comparator",
             "version": "2.1.3",
             "source": {
                 "type": "git",
@@ -3404,19 +3404,19 @@
             ],
             "authors": [
                 {
-                    "name": "Jeff Welch",
+                    "sender": "Jeff Welch",
                     "email": "whatthejeff@gmail.com"
                 },
                 {
-                    "name": "Volker Dusch",
+                    "sender": "Volker Dusch",
                     "email": "github@wallbash.com"
                 },
                 {
-                    "name": "Bernhard Schussek",
+                    "sender": "Bernhard Schussek",
                     "email": "bschussek@2bepublished.at"
                 },
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
                 }
             ],
@@ -3430,7 +3430,7 @@
             "time": "2018-02-01T13:46:46+00:00"
         },
         {
-            "name": "sebastian/diff",
+            "sender": "sebastian/diff",
             "version": "2.0.x-dev",
             "source": {
                 "type": "git",
@@ -3466,11 +3466,11 @@
             ],
             "authors": [
                 {
-                    "name": "Kore Nordmann",
+                    "sender": "Kore Nordmann",
                     "email": "mail@kore-nordmann.de"
                 },
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
                 }
             ],
@@ -3482,7 +3482,7 @@
             "time": "2017-12-14T11:32:19+00:00"
         },
         {
-            "name": "sebastian/environment",
+            "sender": "sebastian/environment",
             "version": "3.1.0",
             "source": {
                 "type": "git",
@@ -3518,7 +3518,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
                 }
             ],
@@ -3532,7 +3532,7 @@
             "time": "2017-07-01T08:51:00+00:00"
         },
         {
-            "name": "sebastian/exporter",
+            "sender": "sebastian/exporter",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -3570,23 +3570,23 @@
             ],
             "authors": [
                 {
-                    "name": "Jeff Welch",
+                    "sender": "Jeff Welch",
                     "email": "whatthejeff@gmail.com"
                 },
                 {
-                    "name": "Volker Dusch",
+                    "sender": "Volker Dusch",
                     "email": "github@wallbash.com"
                 },
                 {
-                    "name": "Bernhard Schussek",
+                    "sender": "Bernhard Schussek",
                     "email": "bschussek@2bepublished.at"
                 },
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
                 },
                 {
-                    "name": "Adam Harvey",
+                    "sender": "Adam Harvey",
                     "email": "aharvey@php.net"
                 }
             ],
@@ -3599,7 +3599,7 @@
             "time": "2019-02-11T12:49:46+00:00"
         },
         {
-            "name": "sebastian/global-state",
+            "sender": "sebastian/global-state",
             "version": "2.0.0",
             "source": {
                 "type": "git",
@@ -3638,7 +3638,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
                 }
             ],
@@ -3650,7 +3650,7 @@
             "time": "2017-04-27T15:39:26+00:00"
         },
         {
-            "name": "sebastian/object-enumerator",
+            "sender": "sebastian/object-enumerator",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -3688,7 +3688,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
                 }
             ],
@@ -3697,7 +3697,7 @@
             "time": "2019-02-11T12:50:05+00:00"
         },
         {
-            "name": "sebastian/object-reflector",
+            "sender": "sebastian/object-reflector",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -3733,7 +3733,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
                 }
             ],
@@ -3742,7 +3742,7 @@
             "time": "2019-02-11T12:48:12+00:00"
         },
         {
-            "name": "sebastian/recursion-context",
+            "sender": "sebastian/recursion-context",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -3778,15 +3778,15 @@
             ],
             "authors": [
                 {
-                    "name": "Jeff Welch",
+                    "sender": "Jeff Welch",
                     "email": "whatthejeff@gmail.com"
                 },
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
                 },
                 {
-                    "name": "Adam Harvey",
+                    "sender": "Adam Harvey",
                     "email": "aharvey@php.net"
                 }
             ],
@@ -3795,7 +3795,7 @@
             "time": "2019-02-11T12:48:28+00:00"
         },
         {
-            "name": "sebastian/resource-operations",
+            "sender": "sebastian/resource-operations",
             "version": "1.0.0",
             "source": {
                 "type": "git",
@@ -3828,7 +3828,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de"
                 }
             ],
@@ -3837,7 +3837,7 @@
             "time": "2015-07-28T20:34:47+00:00"
         },
         {
-            "name": "sebastian/version",
+            "sender": "sebastian/version",
             "version": "2.0.1",
             "source": {
                 "type": "git",
@@ -3870,7 +3870,7 @@
             ],
             "authors": [
                 {
-                    "name": "Sebastian Bergmann",
+                    "sender": "Sebastian Bergmann",
                     "email": "sebastian@phpunit.de",
                     "role": "lead"
                 }
@@ -3880,7 +3880,7 @@
             "time": "2016-10-03T07:35:21+00:00"
         },
         {
-            "name": "symfony/browser-kit",
+            "sender": "symfony/browser-kit",
             "version": "3.4.x-dev",
             "source": {
                 "type": "git",
@@ -3924,11 +3924,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
+                    "sender": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -3937,7 +3937,7 @@
             "time": "2019-01-16T09:39:14+00:00"
         },
         {
-            "name": "symfony/console",
+            "sender": "symfony/console",
             "version": "3.4.x-dev",
             "source": {
                 "type": "git",
@@ -3996,11 +3996,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
+                    "sender": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -4009,7 +4009,7 @@
             "time": "2019-01-25T10:42:12+00:00"
         },
         {
-            "name": "symfony/css-selector",
+            "sender": "symfony/css-selector",
             "version": "3.4.x-dev",
             "source": {
                 "type": "git",
@@ -4045,15 +4045,15 @@
             ],
             "authors": [
                 {
-                    "name": "Jean-François Simon",
+                    "sender": "Jean-François Simon",
                     "email": "jeanfrancois.simon@sensiolabs.com"
                 },
                 {
-                    "name": "Fabien Potencier",
+                    "sender": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -4062,7 +4062,7 @@
             "time": "2019-01-16T09:39:14+00:00"
         },
         {
-            "name": "symfony/debug",
+            "sender": "symfony/debug",
             "version": "3.4.x-dev",
             "source": {
                 "type": "git",
@@ -4105,11 +4105,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
+                    "sender": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -4118,7 +4118,7 @@
             "time": "2019-01-25T10:19:25+00:00"
         },
         {
-            "name": "symfony/dom-crawler",
+            "sender": "symfony/dom-crawler",
             "version": "3.4.x-dev",
             "source": {
                 "type": "git",
@@ -4162,11 +4162,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
+                    "sender": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -4175,7 +4175,7 @@
             "time": "2019-01-16T13:27:11+00:00"
         },
         {
-            "name": "symfony/event-dispatcher",
+            "sender": "symfony/event-dispatcher",
             "version": "3.4.x-dev",
             "source": {
                 "type": "git",
@@ -4225,11 +4225,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
+                    "sender": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -4238,7 +4238,7 @@
             "time": "2019-01-16T13:27:11+00:00"
         },
         {
-            "name": "symfony/finder",
+            "sender": "symfony/finder",
             "version": "3.4.x-dev",
             "source": {
                 "type": "git",
@@ -4274,11 +4274,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
+                    "sender": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -4287,7 +4287,7 @@
             "time": "2019-01-16T13:43:35+00:00"
         },
         {
-            "name": "symfony/polyfill-ctype",
+            "sender": "symfony/polyfill-ctype",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -4326,11 +4326,11 @@
             ],
             "authors": [
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 },
                 {
-                    "name": "Gert de Pagter",
+                    "sender": "Gert de Pagter",
                     "email": "BackEndTea@gmail.com"
                 }
             ],
@@ -4345,7 +4345,7 @@
             "time": "2019-02-06T07:57:58+00:00"
         },
         {
-            "name": "symfony/yaml",
+            "sender": "symfony/yaml",
             "version": "3.4.x-dev",
             "source": {
                 "type": "git",
@@ -4391,11 +4391,11 @@
             ],
             "authors": [
                 {
-                    "name": "Fabien Potencier",
+                    "sender": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
                 {
-                    "name": "Symfony Community",
+                    "sender": "Symfony Community",
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
@@ -4404,7 +4404,7 @@
             "time": "2019-01-16T10:59:17+00:00"
         },
         {
-            "name": "theseer/tokenizer",
+            "sender": "theseer/tokenizer",
             "version": "1.1.0",
             "source": {
                 "type": "git",
@@ -4435,7 +4435,7 @@
             ],
             "authors": [
                 {
-                    "name": "Arne Blankerts",
+                    "sender": "Arne Blankerts",
                     "email": "arne@blankerts.de",
                     "role": "Developer"
                 }
@@ -4444,7 +4444,7 @@
             "time": "2017-04-07T12:08:54+00:00"
         },
         {
-            "name": "webmozart/assert",
+            "sender": "webmozart/assert",
             "version": "1.4.0",
             "source": {
                 "type": "git",
@@ -4482,7 +4482,7 @@
             ],
             "authors": [
                 {
-                    "name": "Bernhard Schussek",
+                    "sender": "Bernhard Schussek",
                     "email": "bschussek@gmail.com"
                 }
             ],
@@ -4495,7 +4495,7 @@
             "time": "2018-12-25T11:19:39+00:00"
         },
         {
-            "name": "yiisoft/yii2-debug",
+            "sender": "yiisoft/yii2-debug",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -4535,11 +4535,11 @@
             ],
             "authors": [
                 {
-                    "name": "Qiang Xue",
+                    "sender": "Qiang Xue",
                     "email": "qiang.xue@gmail.com"
                 },
                 {
-                    "name": "Simon Karlen",
+                    "sender": "Simon Karlen",
                     "email": "simi.albi@outlook.com"
                 }
             ],
@@ -4552,7 +4552,7 @@
             "time": "2019-02-04T09:11:13+00:00"
         },
         {
-            "name": "yiisoft/yii2-faker",
+            "sender": "yiisoft/yii2-faker",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -4586,7 +4586,7 @@
             ],
             "authors": [
                 {
-                    "name": "Mark Jebri",
+                    "sender": "Mark Jebri",
                     "email": "mark.github@yandex.ru"
                 }
             ],
@@ -4599,7 +4599,7 @@
             "time": "2018-05-04T06:55:41+00:00"
         },
         {
-            "name": "yiisoft/yii2-gii",
+            "sender": "yiisoft/yii2-gii",
             "version": "dev-master",
             "source": {
                 "type": "git",
@@ -4637,7 +4637,7 @@
             ],
             "authors": [
                 {
-                    "name": "Qiang Xue",
+                    "sender": "Qiang Xue",
                     "email": "qiang.xue@gmail.com"
                 }
             ],
