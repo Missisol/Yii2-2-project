@@ -30,7 +30,6 @@ conn.onerror = (e) => {
      * @param e
      */
     conn.onmessage = (e) => {
-      console.log(e.data);
       const data = e.data.split(/::/);
       const senderId = data[0];
       const senderName = data[1];
