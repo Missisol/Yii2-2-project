@@ -23,7 +23,6 @@ use common\models\User;
  * @property User $creator
  * @property User $executor
  * @property User $updater
- *
  * @property Project $project
  */
 class Task extends \common\models\Task
@@ -46,11 +45,15 @@ class Task extends \common\models\Task
         return [
             [['title', 'description', 'creator_id', 'created_at'], 'required'],
             [['description'], 'string'],
-            [['project_id', 'executor_id', 'started_at', 'completed_at', 'creator_id', 'updater_id', 'created_at', 'updated_at'], 'integer'],
+            [['project_id', 'executor_id', 'started_at', 'completed_at', 'creator_id', 'updater_id',
+                'created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 255],
-            [['creator_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['creator_id' => 'id']],
-            [['executor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['executor_id' => 'id']],
-            [['updater_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updater_id' => 'id']],
+            [['creator_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(),
+                'targetAttribute' => ['creator_id' => 'id']],
+            [['executor_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(),
+                'targetAttribute' => ['executor_id' => 'id']],
+            [['updater_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(),
+                'targetAttribute' => ['updater_id' => 'id']],
         ];
     }
 

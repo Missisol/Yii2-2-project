@@ -21,7 +21,6 @@ use common\models\ProjectUser;
  * @property User $creator
  * @property User $updater
  * @property ProjectUser[] $projectUsers
- *
  * @property Task[] $tasks
  */
 class Project extends \common\models\Project
@@ -46,8 +45,10 @@ class Project extends \common\models\Project
             [['description'], 'string'],
             [['active', 'creator_id', 'updater_id', 'created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 255],
-            [['creator_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['creator_id' => 'id']],
-            [['updater_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['updater_id' => 'id']],
+            [['creator_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(),
+                'targetAttribute' => ['creator_id' => 'id']],
+            [['updater_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(),
+                'targetAttribute' => ['updater_id' => 'id']],
         ];
     }
 
