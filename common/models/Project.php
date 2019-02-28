@@ -2,7 +2,6 @@
 
 namespace common\models;
 
-use Yii;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 
@@ -21,9 +20,12 @@ use yii\behaviors\TimestampBehavior;
  * @property User $creator
  * @property User $updater
  * @property ProjectUser[] $projectUsers
+ * @property Task[] $tasks
  */
 class Project extends \yii\db\ActiveRecord
 {
+    const RELATION_TASKS = 'tasks';
+
     /**
      * {@inheritdoc}
      */
@@ -34,13 +36,13 @@ class Project extends \yii\db\ActiveRecord
 
     public function behaviors()
     {
-      return [
-        ['class' => TimestampBehavior::class],
-        ['class' => BlameableBehavior::class,
-          'createdByAttribute' => 'creator_id',
-          'updatedByAttribute' => 'updater_id',
-        ],
-      ];
+        return [
+            ['class' => TimestampBehavior::class],
+            ['class' => BlameableBehavior::class,
+                'createdByAttribute' => 'creator_id',
+                'updatedByAttribute' => 'updater_id',
+            ],
+        ];
     }
 
     /**
@@ -104,5 +106,13 @@ class Project extends \yii\db\ActiveRecord
     public static function find()
     {
         return new \common\models\query\ProjectQuery(get_called_class());
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTasks()
+    {
+        return $this->hasMany(Task::className(), ['project_id' => 'id']);
     }
 }
