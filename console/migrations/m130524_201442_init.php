@@ -22,7 +22,7 @@ class m130524_201442_init extends Migration
             'access_token' => $this->string(255),
             'avatar' => $this->string(255),
 
-          'status' => $this->smallInteger()->notNull()->defaultValue(10),
+            'status' => $this->smallInteger()->notNull()->defaultValue(10),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
