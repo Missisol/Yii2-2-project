@@ -43,6 +43,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '<controller:[\w-]+>s' => '<controller>/index',
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/task'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/project'],
             ],
@@ -50,7 +51,7 @@ return [
     ],
     'modules' => [
         'api' => [
-            'class' => 'frontend\modules\api\Module',
+            'class' => frontend\modules\api\Module::class,
         ],
     ],
     'params' => $params,

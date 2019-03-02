@@ -5,7 +5,12 @@
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
-    <?= \common\modules\chat\widgets\Chat::widget(['port' => 8081, 'userName' => Yii::$app->user->identity->username]) ?>
+    <?= \common\modules\chat\widgets\Chat::widget([
+        'port' => 8081,
+        'userName' => Yii::$app->user->identity->username,
+        'userAvatar' => Yii::$app->user->identity
+            ->getThumbUploadUrl('avatar', \common\models\User::AVATAR_THUMB),
+    ]) ?>
     <div class="jumbotron">
         <h1>Congratulations!</h1>
 
