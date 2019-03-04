@@ -6,6 +6,11 @@ $config = [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '',
         ],
+        'formatter' => [
+            'dateFormat' => 'dd.MM.yyyy',
+            'timeFormat' => 'HH:mm',
+            'datetimeFormat' => 'dd.MM.yyyy HH:mm',
+        ],
     ],
 ];
 

@@ -3,6 +3,7 @@
 const webSocketPort = wsPort ? wsPort : 8080;
 const conn = new WebSocket('ws://localhost:' + webSocketPort);
 const user = userName;
+const avatar = userAvatar;
 
 conn.onopen = (e) => {
   console.log("Connection established!");
@@ -21,7 +22,7 @@ conn.onerror = (e) => {
       const $elem = $('#bodyMessage');
       const elemText = $elem.val();
 
-      conn.send(`${userName}::${elemText}`);
+      conn.send(`${user}::${elemText}::${avatar}`);
       $elem.val('');
     });
 
@@ -31,12 +32,8 @@ conn.onerror = (e) => {
      */
     conn.onmessage = (e) => {
       const data = e.data.split(/::/);
-      const senderId = data[0];
-      const senderName = data[1];
-      const message = data[2];
-      const receiverId = data[3];
 
-      const chat = new ChatBox(senderId, senderName, message, receiverId);
+      const chat = new ChatBox(data);
       chat.addMessageToBox();
       chat.addMessageToDropdownBox();
     };
@@ -45,10 +42,11 @@ conn.onerror = (e) => {
      * Class for creating message containers
      */
     class ChatBox {
-      constructor(senderId, senderName, message, receiverId) {
+      constructor([senderId, senderName, message, image, receiverId]) {
         this.senderId = senderId;
         this.senderName = senderName;
         this.message = message;
+        this.image = image;
         this.receiverId = receiverId;
       }
 
@@ -73,7 +71,7 @@ conn.onerror = (e) => {
           const $a = $('<a />', {href: '#'});
           const $div = $('<div />', {class: 'pull-left'});
           const $img = $('<img />', {
-            src: `/assets/29af8489/img/${this.senderName}.jpg`,
+            src: this.image,
             class: 'img-circle',
             alt: 'User Image',
           });

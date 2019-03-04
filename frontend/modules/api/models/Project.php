@@ -25,50 +25,6 @@ use common\models\ProjectUser;
  */
 class Project extends \common\models\Project
 {
-    const RELATION_TASKS = 'tasks';
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function tableName()
-    {
-        return 'project';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function rules()
-    {
-        return [
-            [['title', 'description', 'creator_id', 'created_at'], 'required'],
-            [['description'], 'string'],
-            [['active', 'creator_id', 'updater_id', 'created_at', 'updated_at'], 'integer'],
-            [['title'], 'string', 'max' => 255],
-            [['creator_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(),
-                'targetAttribute' => ['creator_id' => 'id']],
-            [['updater_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(),
-                'targetAttribute' => ['updater_id' => 'id']],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'title' => 'Title',
-            'description' => 'Description',
-            'active' => 'Active',
-            'creator_id' => 'Creator ID',
-            'updater_id' => 'Updater ID',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
-        ];
-    }
-
     /**
      * @return \yii\db\ActiveQuery
      */
