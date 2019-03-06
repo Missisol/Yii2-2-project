@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use lhs\Yii2SaveRelationsBehavior\SaveRelationsBehavior;
 use yii\behaviors\BlameableBehavior;
 use yii\behaviors\TimestampBehavior;
 
@@ -21,10 +22,22 @@ use yii\behaviors\TimestampBehavior;
  * @property User $updater
  * @property ProjectUser[] $projectUsers
  * @property Task[] $tasks
+ * @property User[] $users
  */
 class Project extends \yii\db\ActiveRecord
 {
+    const RELATION_PROJECT_USERS = 'projectUsers';
     const RELATION_TASKS = 'tasks';
+    const STATUS_PROJECT_ACTIVE = 1;
+    const STATUS_PROJECT_INACTIVE = 0;
+    const STATUSES_PROJECT = [
+        self::STATUS_PROJECT_ACTIVE,
+        self::STATUS_PROJECT_INACTIVE,
+    ];
+    const STATUS_PROJECT_LABELS = [
+        self::STATUS_PROJECT_ACTIVE => 'Active',
+        self::STATUS_PROJECT_INACTIVE => 'Inactive',
+    ];
 
     /**
      * {@inheritdoc}
@@ -42,6 +55,13 @@ class Project extends \yii\db\ActiveRecord
                 'createdByAttribute' => 'creator_id',
                 'updatedByAttribute' => 'updater_id',
             ],
+            // https://github.com/la-haute-societe/yii2-save-relations-behavior
+            'saveRelations' => [
+                'class'     => SaveRelationsBehavior::className(),
+                'relations' => [
+                    self::RELATION_PROJECT_USERS,
+                ],
+            ],
         ];
     }
 
@@ -54,6 +74,7 @@ class Project extends \yii\db\ActiveRecord
             [['title', 'description'], 'required'],
             [['description'], 'string'],
             [['active'], 'integer'],
+            ['active', 'in', 'range' => self::STATUSES_PROJECT],
             [['title'], 'string', 'max' => 255],
         ];
     }
