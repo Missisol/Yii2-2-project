@@ -7,6 +7,7 @@ use Yii;
 use common\models\Project;
 use common\models\search\ProjectSearch;
 use yii\data\ActiveDataProvider;
+use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -22,6 +23,19 @@ class ProjectController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -94,8 +108,14 @@ class ProjectController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $projectUsers = $model->getExecutorsData();
 
         if ($this->loadModel($model) && $model->save()) {
+            if ($diffRoles = array_diff_assoc($model->getExecutorsData(), $projectUsers)) {
+                foreach ($diffRoles as $userId => $diffRole) {
+                    Yii::$app->projectService->assignRole($model, User::findOne($userId), $diffRole);
+                }
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

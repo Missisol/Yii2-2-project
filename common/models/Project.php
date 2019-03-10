@@ -136,4 +136,11 @@ class Project extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Task::className(), ['project_id' => 'id']);
     }
+
+    /**
+     * @return array
+     */
+    public function getExecutorsData() {
+        return $this->getProjectUsers()->select('role')->indexBy('user_id')->column();
+    }
 }
