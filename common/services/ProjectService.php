@@ -13,11 +13,12 @@ class AssignRoleEvent extends Event
     public $user;
     public $role;
 
-    public function dump() {
+    public function dump()
+    {
         return [
-          'project' => $this->project->id,
-          'user' => $this->user->id,
-          'role' => $this->role,
+            'project' => $this->project->id,
+            'user' => $this->user->id,
+            'role' => $this->role,
         ];
     }
 }
@@ -31,11 +32,20 @@ class ProjectService extends Component
      * @param User $user
      * @param $role
      */
-    public function assignRole(Project $project, User $user, $role) {
+    public function assignRole(Project $project, User $user, $role)
+    {
         $event = new AssignRoleEvent();
         $event->project = $project;
         $event->user = $user;
         $event->role = $role;
         $this->trigger(self::EVENT_ASSIGN_ROLE, $event);
+    }
+
+    public function getRoles(Project $project, User $user) {
+        return $project->getProjectUsers()->byUser($user->id)->select('role')->column();
+    }
+
+    public function hasRole(Project $project, User $user, $role) {
+        return in_array($role, $this->getRoles($project, $user));
     }
 }
