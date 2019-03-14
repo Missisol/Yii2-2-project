@@ -38,6 +38,8 @@ class Project extends \yii\db\ActiveRecord
         self::STATUS_PROJECT_ACTIVE => 'Active',
         self::STATUS_PROJECT_INACTIVE => 'Inactive',
     ];
+    const RELATION_CREATED_BY = 'creator';
+    const RELATION_UPDATED_BY = 'updater';
 
     /**
      * {@inheritdoc}
@@ -86,7 +88,7 @@ class Project extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
+            'title' => 'Project title',
             'description' => 'Description',
             'active' => 'Active',
             'creator_id' => 'Creator ID',
