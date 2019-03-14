@@ -27,10 +27,6 @@ class ProjectController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
                         'allow' => true,
                         'roles' => ['@'],
                     ],

@@ -58,7 +58,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     return $user;
                 }
-            ], [
+            ],
+            [
                 'label' => 'User role',
                 'attribute' => 'title',
                 'content' => function (ProjectUser $model) {
@@ -69,5 +70,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]) ?>
+
+    <?php echo \yii2mod\comments\widgets\Comment::widget([
+        'model' => $model,
+    ]); ?>
 
 </div>
