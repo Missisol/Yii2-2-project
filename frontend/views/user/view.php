@@ -17,14 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
   <h1><?= Html::encode($this->title) ?></h1>
 
   <p>
-      <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-      <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-          'class' => 'btn btn-danger',
-          'data' => [
-              'confirm' => 'Are you sure you want to delete this item?',
-              'method' => 'post',
-          ],
-      ]) ?>
+      <?= Html::a('Update', ['profile', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
   </p>
 
     <?= DetailView::widget([
@@ -32,13 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'username',
-//            'auth_key',
-//            'password_hash',
-//            'password_reset_token',
             'email:email',
-//            'access_token',
-            'avatar',
-            'status',
+            [
+                'label' => 'status',
+                'value' => \common\models\User::STATUS_LABELS[$model->status],
+            ],
             'created_at:datetime',
             'updated_at:datetime',
         ],

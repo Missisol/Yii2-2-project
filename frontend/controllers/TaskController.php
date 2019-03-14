@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\query\TaskQuery;
 use Yii;
 use common\models\Task;
 use common\models\search\TaskSearch;
@@ -25,10 +26,6 @@ class TaskController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -51,6 +48,9 @@ class TaskController extends Controller
     {
         $searchModel = new TaskSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        /* @var $query TaskQuery */
+        $query = $dataProvider->query;
+        $query->byUser(Yii::$app->user->id);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -121,6 +121,44 @@ class TaskController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    /**
+     * @param $id
+     * @return string|\yii\web\Response
+     * @throws NotFoundHttpException
+     */
+    public function actionTakeTask($id)
+    {
+        $model = $this->findModel($id);
+        $model = Yii::$app->taskService->takeTask($model, Yii::$app->user->identity);
+
+     if ($model->save()) {
+         Yii::$app->session->setFlash('success', 'Executor assigned');
+
+         return $this->redirect(['view', 'id' => $model->id]);
+     }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    /**
+     * @param $id
+     * @return \yii\web\Response
+     * @throws NotFoundHttpException
+     */
+    public function actionCompleteTask($id)
+    {
+        $model = $this->findModel($id);
+        $model = Yii::$app->taskService->completeTask($model);
+
+        if ($model->save()) {
+            Yii::$app->session->setFlash('success', 'Task closed');
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 
     /**
