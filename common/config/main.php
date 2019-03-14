@@ -9,6 +9,14 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'i18n' => [
+            'translations' => [
+                'yii2mod.comments' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@yii2mod/comments/messages',
+                ],
+            ],
+        ],
         'emailService' => [
             'class' => \common\services\EmailService::class,
         ],
@@ -22,8 +30,14 @@ return [
                     Yii::$app->notificationService->sendToUserAboutNewRole($e->user, $e->project, $e->role);
                 }
         ],
+        'taskService' => [
+            'class' => \common\services\TaskService::class,
+        ]
     ],
     'modules' => [
+        'comment' => [
+            'class' => 'yii2mod\comments\Module',
+        ],
         'chat' => [
             'class' => 'common\modules\chat\Module',
         ],
