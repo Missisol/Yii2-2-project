@@ -2,6 +2,8 @@
 
 namespace common\models\query;
 
+use common\models\ProjectUser;
+
 /**
  * This is the ActiveQuery class for [[\common\models\Project]].
  *
@@ -9,10 +11,11 @@ namespace common\models\query;
  */
 class ProjectQuery extends \yii\db\ActiveQuery
 {
-    /*public function active()
+    public function byUser($userId, $role = null)
     {
-        return $this->andWhere('[[status]]=1');
-    }*/
+       $query = ProjectUser::find()->select('project_id')->byUser($userId, $role);
+       return $this->andWhere(['id' => $query]);
+    }
 
     /**
      * {@inheritdoc}
