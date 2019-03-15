@@ -2,10 +2,13 @@
 
 namespace frontend\controllers;
 
+use common\models\Project;
+use common\models\ProjectUser;
 use common\models\query\TaskQuery;
 use Yii;
 use common\models\Task;
 use common\models\search\TaskSearch;
+use common\models\User;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -132,12 +135,23 @@ class TaskController extends Controller
     {
         $model = $this->findModel($id);
         $model = Yii::$app->taskService->takeTask($model, Yii::$app->user->identity);
+        $message = 'taken to work';
 
-     if ($model->save()) {
-         Yii::$app->session->setFlash('success', 'Executor assigned');
+        if ($model->save()) {
+            $managers = ProjectUser::find()->where(['project_id' => $model->project_id])
+                ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column();
 
-         return $this->redirect(['view', 'id' => $model->id]);
-     }
+            foreach ($managers as $id) {
+                $manager = User::findOne(ProjectUser::findOne($id)->user_id);
+
+                Yii::$app->taskService
+                    ->taskEventFunc($model, User::findOne($model->executor_id),
+                        Project::findOne($model->project_id), $manager, $message);
+            }
+            Yii::$app->session->setFlash('success', 'Executor assigned');
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
@@ -151,8 +165,29 @@ class TaskController extends Controller
     {
         $model = $this->findModel($id);
         $model = Yii::$app->taskService->completeTask($model);
+        $message = 'completed';
 
         if ($model->save()) {
+            $managers = ProjectUser::find()->where(['project_id' => $model->project_id])
+                ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column();
+            foreach ($managers as $id) {
+                $manager = User::findOne(ProjectUser::findOne($id)->user_id);
+
+                Yii::$app->taskService
+                    ->taskEventFunc($model, User::findOne($model->executor_id),
+                        Project::findOne($model->project_id), $manager, $message);
+            }
+
+            $tester = ProjectUser::find()->where(['project_id' => $model->project_id])
+                ->andWhere(['role' => ProjectUser::ROLE_TESTER])->column();
+            foreach ($tester as $id) {
+                $tester = User::findOne(ProjectUser::findOne($id)->user_id);
+
+                Yii::$app->taskService
+                    ->taskEventFunc($model, User::findOne($model->executor_id),
+                        Project::findOne($model->project_id), $tester, $message);
+            }
+
             Yii::$app->session->setFlash('success', 'Task closed');
 
             return $this->redirect(['view', 'id' => $model->id]);

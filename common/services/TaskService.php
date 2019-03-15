@@ -8,9 +8,32 @@ use common\models\ProjectUser;
 use common\models\Task;
 use common\models\User;
 use yii\base\Component;
+use yii\base\Event;
+
+class TaskStatusEvent extends Event
+{
+    public $task;
+    public $project;
+    public $user;
+    public $userWithRole;
+    public $message;
+}
 
 class TaskService extends Component
 {
+    const EVENT_TASK = 'event_task';
+
+    public function taskEventFunc(Task $task, User $user, Project $project, User $userWithRole, $message)
+    {
+        $event = new TaskStatusEvent();
+        $event->task = $task;
+        $event->project = $project;
+        $event->user = $user;
+        $event->userWithRole = $userWithRole;
+        $event->message = $message;
+        $this->trigger(self::EVENT_TASK, $event);
+    }
+
     /**
      * @param Project $project
      * @param User $user
