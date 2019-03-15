@@ -11,6 +11,11 @@ use common\models\ProjectUser;
  */
 class ProjectQuery extends \yii\db\ActiveQuery
 {
+    /**
+     * @param $userId
+     * @param null $role
+     * @return ProjectQuery
+     */
     public function byUser($userId, $role = null)
     {
        $query = ProjectUser::find()->select('project_id')->byUser($userId, $role);
