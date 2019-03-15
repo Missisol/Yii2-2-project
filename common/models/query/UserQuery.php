@@ -3,6 +3,7 @@
 namespace common\models\query;
 
 use common\models\User;
+use common\models\ProjectUser;
 
 /**
  * This is the ActiveQuery class for [[\common\models\User]].
@@ -18,6 +19,15 @@ class UserQuery extends \yii\db\ActiveQuery
     {
         return User::find()->select('username')->indexBy('id')
             ->andWhere(['status' => User::STATUS_ACTIVE]);
+    }
+
+    /**
+     * Query for users with manager and developer roles
+     * @return UserQuery
+     */
+    public function byUserWithRole() {
+        $query = ProjectUser::find()->byUserWithRole()->select('user_id');
+        return $this->andWhere(['id' => $query]);
     }
 
     /**
