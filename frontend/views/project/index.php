@@ -1,5 +1,6 @@
 <?php
 
+use common\models\Project;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -23,29 +24,29 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             [
                 'attribute' => 'title',
-                'content' => function (\common\models\Project $model) {
+                'content' => function (Project $model) {
                     return Html::a($model->title, ['view', 'id' => $model->id]);
                 },
                 'format' => 'html',
             ],
             [
-                'attribute' => \common\models\Project::RELATION_PROJECT_USERS . '.role',
-                'content' => function (\common\models\Project $model) {
+                'attribute' => Project::RELATION_PROJECT_USERS . '.role',
+                'content' => function (Project $model) {
                     return join(', ', Yii::$app->projectService->getRoles($model, Yii::$app->user->identity));
                 },
                 'format' => 'html',
             ],
             [
                 'attribute' => 'active',
-                'filter' => \common\models\Project::STATUS_PROJECT_LABELS,
-                'content' => function (\common\models\Project $model) {
-                    return \common\models\Project::STATUS_PROJECT_LABELS[$model->active];
+                'filter' => Project::STATUS_PROJECT_LABELS,
+                'content' => function (Project $model) {
+                    return Project::STATUS_PROJECT_LABELS[$model->active];
                 },
             ],
             'description:ntext',
             [
                 'attribute' => 'creator_id',
-                'content' => function (\common\models\Project $model) {
+                'content' => function (Project $model) {
                     return Html::a($model->creator->username,
                         ['user/view', 'id' => $model->creator->id]);
                 },
@@ -53,7 +54,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'attribute' => 'updater_id',
-                'content' => function (\common\models\Project $model) {
+                'content' => function (Project $model) {
                     if ($model->updater) {
                         return Html::a($model->updater->username,
                             ['user/view', 'id' => $model->updater->id]);
