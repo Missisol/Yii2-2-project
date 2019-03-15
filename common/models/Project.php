@@ -142,7 +142,8 @@ class Project extends \yii\db\ActiveRecord
     /**
      * @return array
      */
-    public function getExecutorsData() {
+    public function getExecutorsData()
+    {
         return $this->getProjectUsers()->select('role')->indexBy('user_id')->column();
     }
 }
