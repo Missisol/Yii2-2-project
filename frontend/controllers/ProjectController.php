@@ -48,6 +48,8 @@ class ProjectController extends Controller
     {
         $searchModel = new ProjectSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination->pageSize = 10;
+
         /* @var $query ProjectQuery */
         $query = $dataProvider->query;
         $query->byUser(Yii::$app->user->id);

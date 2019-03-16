@@ -11,6 +11,7 @@ use common\models\search\TaskSearch;
 use common\models\User;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -51,6 +52,8 @@ class TaskController extends Controller
     {
         $searchModel = new TaskSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination->pageSize = 10;
+
         /* @var $query TaskQuery */
         $query = $dataProvider->query;
         $query->byUser(Yii::$app->user->id);
@@ -81,6 +84,11 @@ class TaskController extends Controller
      */
     public function actionCreate()
     {
+        if (empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
+            ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) {
+            throw new ForbiddenHttpException('Access denied');
+        }
+
         $model = new Task();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -101,6 +109,11 @@ class TaskController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
+            ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) {
+            throw new ForbiddenHttpException('Access denied');
+        }
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -121,6 +134,11 @@ class TaskController extends Controller
      */
     public function actionDelete($id)
     {
+        if (empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
+            ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) {
+            throw new ForbiddenHttpException('Access denied');
+        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
@@ -188,7 +206,7 @@ class TaskController extends Controller
                         Project::findOne($model->project_id), $tester, $message);
             }
 
-            Yii::$app->session->setFlash('success', 'Task closed');
+            Yii::$app->session->setFlash('success', 'Task completed');
 
             return $this->redirect(['view', 'id' => $model->id]);
         }

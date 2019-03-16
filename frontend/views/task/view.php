@@ -1,5 +1,6 @@
 <?php
 
+use common\models\ProjectUser;
 use yii\grid\GridView;
 use yii\widgets\DetailView;
 use yii\helpers\Html;
@@ -20,14 +21,32 @@ $this->params['breadcrumbs'][] = $this->title;
   <h1><?= Html::encode($this->title) ?></h1>
 
   <p>
-      <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-      <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-          'class' => 'btn btn-danger',
-          'data' => [
-              'confirm' => 'Are you sure you want to delete this item?',
-              'method' => 'post',
-          ],
-      ]) ?>
+      <?php if (!empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
+          ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) : ?>
+          <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+          <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+              'class' => 'btn btn-danger',
+              'data' => [
+                  'confirm' => 'Are you sure you want to take this task?',
+                  'method' => 'post',
+              ],
+          ]) ?>
+      <?php endif; ?>
+      <?php if (!empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
+          ->andWhere(['role' => ProjectUser::ROLE_DEVELOPER])->column())) : ?>
+          <?php if (Yii::$app->taskService->canTake($model, Yii::$app->user->identity)) : ?>
+              <?= Html::a('Take', ['task/take-task', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+          <?php endif; ?>
+          <?php if (Yii::$app->taskService->canComplete($model, Yii::$app->user->identity)) : ?>
+              <?= Html::a('Complete', ['task/complete-task', 'id' => $model->id], [
+                  'class' => 'btn btn-danger',
+                  'data' => [
+                      'confirm' => 'Are you sure you want to complete this task?',
+                      'method' => 'post',
+                  ],
+              ]) ?>
+          <?php endif; ?>
+      <?php endif; ?>
   </p>
 
     <?= DetailView::widget([

@@ -1,6 +1,7 @@
 <?php
 
 use common\models\Project;
+use common\models\ProjectUser;
 use common\models\Task;
 use common\models\User;
 use yii\helpers\Html;
@@ -21,7 +22,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
   <p>
+    <?php if (!empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
+        ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) : ?>
       <?= Html::a('Create Task', ['create'], ['class' => 'btn btn-success']) ?>
+    <?php endif; ?>
   </p>
 
     <?= GridView::widget([
@@ -35,10 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'project_id',
                 'label' => 'Project',
-                'filter' => Project::find()
-                    ->select('title')
-                    ->where(['active' => Project::STATUS_PROJECT_ACTIVE])
-                    ->indexBy('id')->column(),
+                'filter' => Project::find()->byUser(Yii::$app->user->id)
+                    ->select('title')->indexBy('id')->column(),
                 'content' => function (Task $model) {
                     $project_title = $model->project->title;
                     return Html::a($project_title, ['project/view', 'id' => $model->project->id]);
@@ -48,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'executor_id',
                 'label' => 'Executor',
-                'filter' => User::find()->onlyActive()->column(),
+                'filter' => User::find()->onlyActive()->byDeveloper()->column(),
                 'content' => function (Task $model) {
                     if ($model->executor) {
                         $executor = $model->executor->username;
@@ -60,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'creator_id',
                 'label' => 'Creator',
-                'filter' => User::find()->onlyActive()->column(),
+                'filter' => User::find()->onlyActive()->byManager()->column(),
                 'content' => function (Task $model) {
                     $creator = $model->creator->username;
                     return Html::a($creator, ['user/view', 'id' => $model->creator->id]);
@@ -69,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'class' => 'yii\grid\ActionColumn',
-                'template' => '{view} {update} {delete} {take} {close} {double}',
+                'template' => '{view} {update} {delete} {take} {complete} {double}',
                 'buttons' => [
                     'take' => function ($url, Task $model, $key) {
                         $icon = \yii\bootstrap\Html::icon('log-in');
@@ -81,12 +83,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                             ]);
                     },
-                    'close' => function ($url, Task $model, $key) {
+                    'complete' => function ($url, Task $model, $key) {
                         $icon = \yii\bootstrap\Html::icon('log-out');
                         return Html::a($icon,
                             ['task/complete-task', 'id' => $model->id],
                             ['data' => [
-                                'confirm' => 'Do you want to close this task?',
+                                'confirm' => 'Do you want to complete this task?',
                                 'method' => 'post',
                             ],
                             ]);
@@ -102,7 +104,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'take' => function (Task $model, $key, $index) {
                         return Yii::$app->taskService->canTake($model, Yii::$app->user->identity);
                     },
-                    'close' => function (Task $model, $key, $index) {
+                    'complete' => function (Task $model, $key, $index) {
                         return Yii::$app->taskService->canComplete($model, Yii::$app->user->identity);
                     },
                 ],
