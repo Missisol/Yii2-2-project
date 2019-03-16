@@ -15,6 +15,23 @@ conn.onerror = (e) => {
 
 (($) => {
   $(() => {
+
+    /* Creates a list of projects for output in the options */
+    const $chatTitleSelect = $('#chatTitle');
+    fetch('http://y2aa-backend.test/api/project')
+      .then((response) => response.json())
+      .then(result =>{
+        result.map((item) => {
+          const $option = $('<option />', {
+            text: item.title,
+          });
+          $chatTitleSelect.append($option);
+        })
+      })
+      .catch(() => {
+        console.log('error');
+      });
+
     /**
      * Sens message when an 'onclick' event occurs
      */
@@ -60,7 +77,6 @@ conn.onerror = (e) => {
       addMessageToBox() {
         const $allMessagesBox = $('#allMessages');
         const $chatBox = $(`ul#chatMessages_${this.title}`);
-        console.log($chatBox);
         if ($chatBox.length !== 0) {
           const $oneMessage = $('<li />', {
             class: 'oneMessage',
