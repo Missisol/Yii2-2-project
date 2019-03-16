@@ -19,10 +19,13 @@ conn.onerror = (e) => {
      * Sens message when an 'onclick' event occurs
      */
     $('#chatSubmit').on('click', () => {
+      const $title = $('#chatTitle');
       const $elem = $('#bodyMessage');
+      const title = $title.val();
       const elemText = $elem.val();
 
-      conn.send(`${user}::${elemText}::${avatar}`);
+      conn.send(`${user}::${title}::${elemText}::${avatar}`);
+      $title.val('');
       $elem.val('');
     });
 
@@ -42,9 +45,10 @@ conn.onerror = (e) => {
      * Class for creating message containers
      */
     class ChatBox {
-      constructor([senderId, senderName, message, image, receiverId]) {
+      constructor([senderId, senderName, title, message, image, receiverId]) {
         this.senderId = senderId;
         this.senderName = senderName;
+        this.title = title;
         this.message = message;
         this.image = image;
         this.receiverId = receiverId;
@@ -54,12 +58,30 @@ conn.onerror = (e) => {
        * Adds received message to all messages container
        */
       addMessageToBox() {
-        const $chatBox = $('#chatMessages');
-        const $oneMessage = $('<li />', {
-          class: 'oneMessage',
-          text: `User ${this.senderName}:  ${this.message}`,
-        });
-        $chatBox.prepend($oneMessage);
+        const $allMessagesBox = $('#allMessages');
+        const $chatBox = $(`ul#chatMessages_${this.title}`);
+        console.log($chatBox);
+        if ($chatBox.length !== 0) {
+          const $oneMessage = $('<li />', {
+            class: 'oneMessage',
+            text: `User ${this.senderName}:  ${this.message}`,
+          });
+          $chatBox.prepend($oneMessage);
+        } else {
+          const $title = $('<h5 />', {
+            text: `Thread: project ${this.title}`
+          });
+          const $chatBox = $('<ul />', {
+            class: 'chatMessages',
+            id: `chatMessages_${this.title}`,
+          });
+          $allMessagesBox.append($title).append($chatBox);
+          const $oneMessage = $('<li />', {
+            class: 'oneMessage',
+            text: `User ${this.senderName}:  ${this.message}`,
+          });
+          $chatBox.prepend($oneMessage);
+        }
       }
 
       /**
