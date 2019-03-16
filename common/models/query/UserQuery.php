@@ -22,11 +22,20 @@ class UserQuery extends \yii\db\ActiveQuery
     }
 
     /**
-     * Query for users with manager and developer roles
+     * Query for users with manager role
      * @return UserQuery
      */
-    public function byUserWithRole() {
-        $query = ProjectUser::find()->byUserWithRole()->select('user_id');
+    public function byManager() {
+        $query = ProjectUser::find()->byManager()->select('user_id');
+        return $this->andWhere(['id' => $query]);
+    }
+
+    /**
+     * Query for users with developer role
+     * @return UserQuery
+     */
+    public function byDeveloper() {
+        $query = ProjectUser::find()->byDeveloper()->select('user_id');
         return $this->andWhere(['id' => $query]);
     }
 

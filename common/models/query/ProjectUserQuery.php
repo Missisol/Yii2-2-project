@@ -26,14 +26,19 @@ class ProjectUserQuery extends \yii\db\ActiveQuery
     }
 
     /**
-     * @return $this
+     * @return ProjectUserQuery
      */
-    public function byUserWithRole()
+    public function byManager()
     {
-        if ($this->andWhere(['role' => ProjectUser::ROLE_MANAGER]) ||
-        $this->andWhere(['role' => ProjectUser::ROLE_DEVELOPER])) {
-            return $this;
-        }
+        return $this->andWhere(['role' => ProjectUser::ROLE_MANAGER]);
+    }
+
+    /**
+     * @return ProjectUserQuery
+     */
+    public function byDeveloper()
+    {
+        return $this->andWhere(['role' => ProjectUser::ROLE_DEVELOPER]);
     }
 
     /**
