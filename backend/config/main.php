@@ -15,10 +15,17 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'layout' => 'admin_lte/main',
-    'modules' => [],
+    'modules' => [
+        'api' => [
+            'class' => backend\modules\api\Module::class,
+        ],
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
         ],
         'user' => [
             'identityClass' => 'common\models\User',
@@ -57,9 +64,12 @@ return [
                 '<controller:[\w-]+>s' => '<controller>/index',
                 '<controller:[\w-]+>/<id:\d+>'        => '<controller>/view',
                 'PUT <controller:[\w-]+>/<id:\d+>'        => '<controller>/update',
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/task'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/project'],
+
             ],
           ],
-        'assetManager' => [
+            'assetManager' => [
           'bundles' => [
             'dmstr\web\AdminLteAsset' => [
               'skin' => 'skin-purple',
