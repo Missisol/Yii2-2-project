@@ -47,3 +47,11 @@ $this->params['breadcrumbs'][] = $this->title;
     ]); ?>
     <?php Pjax::end(); ?>
 </div>
+<div class="site-index">
+    <?= \common\modules\chat\widgets\Chat::widget([
+        'port' => 8081,
+        'userName' => Yii::$app->user->identity->username,
+        'userAvatar' => Yii::$app->user->identity
+            ->getThumbUploadUrl('avatar', \common\models\User::AVATAR_THUMB),
+    ]) ?>
+</div>
