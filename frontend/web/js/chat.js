@@ -4,12 +4,13 @@ const webSocketPort = wsPort ? wsPort : 8080;
 const conn = new WebSocket('ws://localhost:' + webSocketPort);
 const user = userName;
 const avatar = userAvatar;
+const domain = urlApi;
 
-conn.onopen = (e) => {
+conn.onopen = () => {
   console.log("Connection established!");
 };
 
-conn.onerror = (e) => {
+conn.onerror = () => {
   console.log("Connection failed!");
 };
 
@@ -18,7 +19,7 @@ conn.onerror = (e) => {
 
     /* Creates a list of projects for output in the options */
     const $chatTitleSelect = $('#chatTitle');
-    fetch('http://y2aa-frontend.test/api/project')
+    fetch(`${domain}`)
       .then((response) => response.json())
       .then(result =>{
         result.map((item) => {
@@ -62,79 +63,44 @@ conn.onerror = (e) => {
      * Class for creating message containers
      */
     class ChatBox {
-      constructor([senderId, senderName, title, message, image, receiverId]) {
-        this.senderId = senderId;
-        this.senderName = senderName;
-        this.title = title;
-        this.message = message;
-        this.image = image;
-        this.receiverId = receiverId;
-      }
+       constructor([senderId, senderName, title, message, image, receiverId]) {
+         this.senderId = senderId;
+         this.senderName = senderName;
+         this.title = title;
+         this.message = message;
+         this.image = image;
+         this.receiverId = receiverId;
+       }
 
-      /**
-       * Adds received message to all messages container
-       */
-      addMessageToBox() {
-        const $allMessagesBox = $('#allMessages');
-        const $chatBox = $(`ul#chatMessages_${this.title}`);
-        if ($chatBox.length !== 0) {
-          const $oneMessage = $('<li />', {
-            class: 'oneMessage',
-            text: `User ${this.senderName}:  ${this.message}`,
-          });
-          $chatBox.prepend($oneMessage);
-        } else {
-          const $title = $('<h5 />', {
-            text: `Thread: project ${this.title}`
-          });
-          const $chatBox = $('<ul />', {
-            class: 'chatMessages',
-            id: `chatMessages_${this.title}`,
-          });
-          $allMessagesBox.append($title).append($chatBox);
-          const $oneMessage = $('<li />', {
-            class: 'oneMessage',
-            text: `User ${this.senderName}:  ${this.message}`,
-          });
-          $chatBox.prepend($oneMessage);
-        }
-      }
-
-      /**
-       * Adds received message to dropdown container
-       */
-      addMessageToDropdownBox() {
-        if (this.senderId !== this.receiverId) {
-          const $li = $('<li />');
-          const $a = $('<a />', {href: '#'});
-          const $div = $('<div />', {class: 'pull-left'});
-          const $img = $('<img />', {
-            src: this.image,
-            class: 'img-circle',
-            alt: 'User Image',
-          });
-          $div.append($img);
-          const $h4 = $('<h4 />').text(`nickname: ${this.senderName}`);
-          const $small = $('<small />');
-          const $i = $('<i />', {class: 'fa fa-clock-o'});
-          $small.append($i).append(new Date().toLocaleString('ru', {
-            day: 'numeric',
-            month: 'numeric',
-            hour: 'numeric',
-            minute: 'numeric',
-          }));
-          $h4.append($small);
-          const $p = $('<p />', {class: 'messageText'}).text(this.message);
-          $a.append($div).append($h4).append($p);
-          $li.append($a);
-          $('ul.menu').prepend($li);
-
-          const cnt = $('li.messages-menu ul.menu li').length;
-          $('li.messages-menu span.label-success').text(cnt);
-          $('li.messages-menu li.header').text(`You have ${cnt} messages`);
-        }
-      }
-    }
+       /**
+        * Adds received message to all messages container
+        */
+       addMessageToBox() {
+         const $allMessagesBox = $('#allMessages');
+         const $chatBox = $(`ul#chatMessages_${this.title}`);
+         if ($chatBox.length !== 0) {
+           const $oneMessage = $('<li />', {
+             class: 'oneMessage',
+             text: `User ${this.senderName}:  ${this.message}`,
+           });
+           $chatBox.prepend($oneMessage);
+         } else {
+           const $title = $('<h5 />', {
+             text: `Thread: project ${this.title}`
+           });
+           const $chatBox = $('<ul />', {
+             class: 'chatMessages',
+             id: `chatMessages_${this.title}`,
+           });
+           $allMessagesBox.append($title).append($chatBox);
+           const $oneMessage = $('<li />', {
+             class: 'oneMessage',
+             text: `User ${this.senderName}:  ${this.message}`,
+           });
+           $chatBox.prepend($oneMessage);
+         }
+       }
+     }
   });
 })(jQuery);
 

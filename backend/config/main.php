@@ -17,7 +17,7 @@ return [
     'layout' => 'admin_lte/main',
     'modules' => [
         'api' => [
-            'class' => backend\modules\api\Module::class,
+            'class' => frontend\modules\api\Module::class,
         ],
     ],
     'components' => [
@@ -64,9 +64,6 @@ return [
                 '<controller:[\w-]+>s' => '<controller>/index',
                 '<controller:[\w-]+>/<id:\d+>'        => '<controller>/view',
                 'PUT <controller:[\w-]+>/<id:\d+>'        => '<controller>/update',
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/task'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'api/project'],
-
             ],
           ],
             'assetManager' => [

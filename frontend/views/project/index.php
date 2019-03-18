@@ -77,6 +77,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= \common\modules\chat\widgets\Chat::widget([
         'port' => 8081,
         'userName' => Yii::$app->user->identity->username,
+        'urlApi' => 'http://y2aa-frontend.test/api/project',
         'userAvatar' => Yii::$app->user->identity
             ->getThumbUploadUrl('avatar', \common\models\User::AVATAR_THUMB),
     ]) ?>

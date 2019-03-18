@@ -4,12 +4,13 @@ const webSocketPort = wsPort ? wsPort : 8080;
 const conn = new WebSocket('ws://localhost:' + webSocketPort);
 const user = userName;
 const avatar = userAvatar;
+const domain = urlApi;
 
-conn.onopen = (e) => {
+conn.onopen = () => {
   console.log("Connection established!");
 };
 
-conn.onerror = (e) => {
+conn.onerror = () => {
   console.log("Connection failed!");
 };
 
@@ -18,7 +19,7 @@ conn.onerror = (e) => {
 
     /* Creates a list of projects for output in the options */
     const $chatTitleSelect = $('#chatTitle');
-    fetch('http://y2aa-backend.test/api/project')
+    fetch(`${domain}`)
       .then((response) => response.json())
       .then(result =>{
         result.map((item) => {
@@ -124,7 +125,7 @@ conn.onerror = (e) => {
             minute: 'numeric',
           }));
           $h4.append($small);
-          const $p = $('<p />', {class: 'messageText'}).text(this.message);
+          const $p = $('<p />', {class: 'messageText'}).text(`${this.title}: ${this.message}`);
           $a.append($div).append($h4).append($p);
           $li.append($a);
           $('ul.menu').prepend($li);
