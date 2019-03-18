@@ -32,7 +32,7 @@ return [
         ],
         'taskService' => [
             'class' => \common\services\TaskService::class,
-            'on ' . \common\services\TaskService::EVENT_TASK =>
+            'on ' . \common\services\TaskService::EVENT_CHANGE_TASK_STATUS =>
                 function (\common\services\TaskStatusEvent $e) {
                     Yii::$app->notificationService
                         ->sendToManagerAboutTaskStatus($e->task, $e->project, $e->user, $e->userWithRole, $e->message);

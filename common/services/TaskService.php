@@ -21,9 +21,16 @@ class TaskStatusEvent extends Event
 
 class TaskService extends Component
 {
-    const EVENT_TASK = 'event_task';
+    const EVENT_CHANGE_TASK_STATUS = 'event_change_task_status';
 
-    public function taskEventFunc(Task $task, User $user, Project $project, User $userWithRole, $message)
+    /**
+     * @param Task $task
+     * @param User $user
+     * @param Project $project
+     * @param $userWithRole
+     * @param $message
+     */
+    public function triggerChangeTaskStatus(Task $task, User $user, Project $project, $userWithRole, $message)
     {
         $event = new TaskStatusEvent();
         $event->task = $task;
@@ -31,7 +38,43 @@ class TaskService extends Component
         $event->user = $user;
         $event->userWithRole = $userWithRole;
         $event->message = $message;
-        $this->trigger(self::EVENT_TASK, $event);
+        $this->trigger(self::EVENT_CHANGE_TASK_STATUS, $event);
+    }
+
+    /**
+     * @param Task $task
+     * @param User $user
+     * @param Project $project
+     * @param $message
+     */
+    public function sendToUserWithRole(Task $task, User $user, Project $project, $message)
+    {
+
+        if ($message == 'taken to work') {
+            $managers = ProjectUser::find()->where(['project_id' => $project->id])
+                ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column();
+            foreach ($managers as $id) {
+                $manager = User::findOne(ProjectUser::findOne($id)->user_id);
+
+                $this->triggerChangeTaskStatus($task, $user, $project, $manager, $message);
+            }
+        } else {
+            $managers = ProjectUser::find()->where(['project_id' => $project->id])
+                ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column();
+            foreach ($managers as $id) {
+                $manager = User::findOne(ProjectUser::findOne($id)->user_id);
+
+                $this->triggerChangeTaskStatus($task, $user, $project, $manager, $message);
+            };
+
+            $tester = ProjectUser::find()->where(['project_id' => $project->id])
+                ->andWhere(['role' => ProjectUser::ROLE_TESTER])->column();
+            foreach ($tester as $id) {
+                $tester = User::findOne(ProjectUser::findOne($id)->user_id);
+
+                $this->triggerChangeTaskStatus($task, $user, $project, $tester, $message);
+            }
+        }
     }
 
     /**
