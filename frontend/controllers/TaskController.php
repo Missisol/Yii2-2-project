@@ -2,11 +2,16 @@
 
 namespace frontend\controllers;
 
+use common\models\Project;
+use common\models\ProjectUser;
+use common\models\query\TaskQuery;
 use Yii;
 use common\models\Task;
 use common\models\search\TaskSearch;
+use common\models\User;
 use yii\filters\AccessControl;
 use yii\web\Controller;
+use yii\web\ForbiddenHttpException;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
@@ -24,10 +29,6 @@ class TaskController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
                     [
                         'allow' => true,
                         'roles' => ['@'],
@@ -51,6 +52,11 @@ class TaskController extends Controller
     {
         $searchModel = new TaskSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider->pagination->pageSize = 10;
+
+        /* @var $query TaskQuery */
+        $query = $dataProvider->query;
+        $query->byUser(Yii::$app->user->id);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -78,6 +84,11 @@ class TaskController extends Controller
      */
     public function actionCreate()
     {
+        if (empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
+            ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) {
+            throw new ForbiddenHttpException('Access denied');
+        }
+
         $model = new Task();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -98,6 +109,11 @@ class TaskController extends Controller
      */
     public function actionUpdate($id)
     {
+        if (empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
+            ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) {
+            throw new ForbiddenHttpException('Access denied');
+        }
+
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -118,9 +134,84 @@ class TaskController extends Controller
      */
     public function actionDelete($id)
     {
+        if (empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
+            ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) {
+            throw new ForbiddenHttpException('Access denied');
+        }
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    /**
+     * @param $id
+     * @return string|\yii\web\Response
+     * @throws NotFoundHttpException
+     */
+    public function actionTakeTask($id)
+    {
+        $model = $this->findModel($id);
+        $model = Yii::$app->taskService->takeTask($model, Yii::$app->user->identity);
+        $message = 'taken to work';
+
+        if ($model->save()) {
+            $managers = ProjectUser::find()->where(['project_id' => $model->project_id])
+                ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column();
+
+            foreach ($managers as $id) {
+                $manager = User::findOne(ProjectUser::findOne($id)->user_id);
+
+                Yii::$app->taskService
+                    ->taskEventFunc($model, User::findOne($model->executor_id),
+                        Project::findOne($model->project_id), $manager, $message);
+            }
+            Yii::$app->session->setFlash('success', 'Executor assigned');
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    /**
+     * @param $id
+     * @return \yii\web\Response
+     * @throws NotFoundHttpException
+     */
+    public function actionCompleteTask($id)
+    {
+        $model = $this->findModel($id);
+        $model = Yii::$app->taskService->completeTask($model);
+        $message = 'completed';
+
+        if ($model->save()) {
+            $managers = ProjectUser::find()->where(['project_id' => $model->project_id])
+                ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column();
+            foreach ($managers as $id) {
+                $manager = User::findOne(ProjectUser::findOne($id)->user_id);
+
+                Yii::$app->taskService
+                    ->taskEventFunc($model, User::findOne($model->executor_id),
+                        Project::findOne($model->project_id), $manager, $message);
+            }
+
+            $tester = ProjectUser::find()->where(['project_id' => $model->project_id])
+                ->andWhere(['role' => ProjectUser::ROLE_TESTER])->column();
+            foreach ($tester as $id) {
+                $tester = User::findOne(ProjectUser::findOne($id)->user_id);
+
+                Yii::$app->taskService
+                    ->taskEventFunc($model, User::findOne($model->executor_id),
+                        Project::findOne($model->project_id), $tester, $message);
+            }
+
+            Yii::$app->session->setFlash('success', 'Task completed');
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 
     /**

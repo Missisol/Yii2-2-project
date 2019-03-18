@@ -18,7 +18,7 @@ conn.onerror = (e) => {
 
     /* Creates a list of projects for output in the options */
     const $chatTitleSelect = $('#chatTitle');
-    fetch('http://y2aa-backend.test/api/project')
+    fetch('http://y2aa-frontend.test/api/project')
       .then((response) => response.json())
       .then(result =>{
         result.map((item) => {

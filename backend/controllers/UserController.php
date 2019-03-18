@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\query\UserQuery;
 use Yii;
 use common\models\User;
 use backend\models\search\UserSearch;
@@ -24,10 +25,6 @@ class UserController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
                     [
                         'allow' => true,
                         'roles' => ['@'],
@@ -52,6 +49,10 @@ class UserController extends Controller
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->pagination->pageSize = 5;
+
+        /* @var $query UserQuery */
+        $query = $dataProvider->query;
+        $query->onlyActive(Yii::$app->user->id);
 
         return $this->render('index', [
             'searchModel' => $searchModel,

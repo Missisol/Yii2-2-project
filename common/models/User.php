@@ -304,4 +304,30 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->hasMany(Project::className(), ['updater_id' => 'id']);
     }
+
+    /**
+     * @return string|null
+     */
+    public function getAvatar()
+    {
+       return $this->getThumbUploadUrl('avatar', self::AVATAR_THUMB);
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername()
+    {
+        return $this->username . '(' . $this->id .')';
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return \common\models\query\UserQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        return new \common\models\query\UserQuery(get_called_class());
+    }
+
 }

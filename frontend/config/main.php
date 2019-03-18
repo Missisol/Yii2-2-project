@@ -57,7 +57,7 @@ return [
             'rules' => [
                 '<controller:[\w-]+>s' => '<controller>/index',
                 '<controller:[\w-]+>/<id:\d+>'        => '<controller>/view',
-                '<controller>/<id:\d+>'        => '<controller>/update',
+                'PUT <controller:[\w-]+>/<id:\d+>'        => '<controller>/update',
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/task'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'api/project'],
             ],
