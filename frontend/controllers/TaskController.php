@@ -149,16 +149,14 @@ class TaskController extends Controller
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException
      */
-    public function actionTakeTask($id)
+    public function actionTake($id)
     {
         $model = $this->findModel($id);
-        $model = Yii::$app->taskService->takeTask($model, Yii::$app->user->identity);
         $message = 'taken to work';
 
-        if ($model->save()) {
-            Yii::$app->taskService
-                ->sendToUserWithRole($model, User::findOne($model->executor_id),
-                    Project::findOne($model->project_id), $message);
+        if (Yii::$app->taskService->takeTask($model, Yii::$app->user->identity)) {
+            Yii::$app->taskService->sendToUserWithRole($model, User::findOne(Yii::$app->user->id),
+                Project::findOne($model->project_id), $message);
 
             Yii::$app->session->setFlash('success', 'Executor assigned');
 
@@ -173,16 +171,14 @@ class TaskController extends Controller
      * @return \yii\web\Response
      * @throws NotFoundHttpException
      */
-    public function actionCompleteTask($id)
+    public function actionComplete($id)
     {
         $model = $this->findModel($id);
-        $model = Yii::$app->taskService->completeTask($model);
         $message = 'completed';
 
-        if ($model->save()) {
-            Yii::$app->taskService
-                ->sendToUserWithRole($model, User::findOne($model->executor_id),
-                    Project::findOne($model->project_id), $message);
+        if (Yii::$app->taskService->completeTask($model)) {
+            Yii::$app->taskService->sendToUserWithRole($model, User::findOne(Yii::$app->user->id),
+                Project::findOne($model->project_id), $message);
 
             Yii::$app->session->setFlash('success', 'Task completed');
 

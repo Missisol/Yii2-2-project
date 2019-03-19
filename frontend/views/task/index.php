@@ -76,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'take' => function ($url, Task $model, $key) {
                         $icon = \yii\bootstrap\Html::icon('log-in');
                         return Html::a($icon,
-                            ['task/take-task', 'id' => $model->id],
+                            ['task/take', 'id' => $model->id],
                             ['data' => [
                                 'confirm' => 'Do you want to take this task?',
                                 'method' => 'post',
@@ -86,7 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'complete' => function ($url, Task $model, $key) {
                         $icon = \yii\bootstrap\Html::icon('log-out');
                         return Html::a($icon,
-                            ['task/complete-task', 'id' => $model->id],
+                            ['task/complete', 'id' => $model->id],
                             ['data' => [
                                 'confirm' => 'Do you want to complete this task?',
                                 'method' => 'post',
