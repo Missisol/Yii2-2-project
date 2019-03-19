@@ -84,8 +84,7 @@ class TaskController extends Controller
      */
     public function actionCreate()
     {
-        if (empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
-            ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) {
+        if (empty(ProjectUser::find()->byUserManager(Yii::$app->user->id)->column())) {
             throw new ForbiddenHttpException('Access denied');
         }
 
@@ -109,8 +108,7 @@ class TaskController extends Controller
      */
     public function actionUpdate($id)
     {
-        if (empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
-            ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) {
+        if (empty(ProjectUser::find()->byUserManager(Yii::$app->user->id)->column())) {
             throw new ForbiddenHttpException('Access denied');
         }
 
@@ -134,8 +132,7 @@ class TaskController extends Controller
      */
     public function actionDelete($id)
     {
-        if (empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
-            ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) {
+        if (empty(ProjectUser::find()->byUserManager(Yii::$app->user->id)->column())) {
             throw new ForbiddenHttpException('Access denied');
         }
 
