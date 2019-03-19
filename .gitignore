@@ -45,3 +45,5 @@ phpunit.phar
 .github
 
 frontend/web/upload/
+
+/ide
