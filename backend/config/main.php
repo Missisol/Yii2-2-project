@@ -62,16 +62,16 @@ return [
             'showScriptName' => false,
             'rules' => [
                 '<controller:[\w-]+>s' => '<controller>/index',
-                '<controller:[\w-]+>/<id:\d+>'        => '<controller>/view',
-                'PUT <controller:[\w-]+>/<id:\d+>'        => '<controller>/update',
+                '<controller:[\w-]+>/<id:\d+>' => '<controller>/view',
+                'PUT <controller:[\w-]+>/<id:\d+>' => '<controller>/update',
             ],
-          ],
-            'assetManager' => [
-          'bundles' => [
-            'dmstr\web\AdminLteAsset' => [
-              'skin' => 'skin-purple',
+        ],
+        'assetManager' => [
+            'bundles' => [
+                'dmstr\web\AdminLteAsset' => [
+                    'skin' => 'skin-purple',
+                ],
             ],
-          ],
         ],
     ],
     'params' => $params,

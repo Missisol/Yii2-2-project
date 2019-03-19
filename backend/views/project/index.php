@@ -37,10 +37,6 @@ $this->params['breadcrumbs'][] = $this->title;
                     return \common\models\Project::STATUS_PROJECT_LABELS[$model->active];
                 }
             ],
-            //'creator_id',
-            //'updater_id',
-            //'created_at',
-            //'updated_at',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

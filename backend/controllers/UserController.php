@@ -50,10 +50,6 @@ class UserController extends Controller
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         $dataProvider->pagination->pageSize = 5;
 
-        /* @var $query UserQuery */
-        $query = $dataProvider->query;
-        $query->onlyActive(Yii::$app->user->id);
-
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
