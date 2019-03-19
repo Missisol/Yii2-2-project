@@ -34,11 +34,32 @@ class ProjectUserQuery extends \yii\db\ActiveQuery
     }
 
     /**
+     * @param $userId
+     * @return ProjectUserQuery
+     */
+    public function byUserManager($userId)
+    {
+        return $this->andWhere(['role' => ProjectUser::ROLE_MANAGER])
+            ->andWhere(['user_id' => $userId]);
+    }
+
+    /**
      * @return ProjectUserQuery
      */
     public function byDeveloper()
     {
         return $this->andWhere(['role' => ProjectUser::ROLE_DEVELOPER]);
+    }
+
+    /**
+     * @param $userId
+     * @return ProjectUserQuery
+     */
+    public function byUserDeveloper($userId)
+    {
+        return $this->andWhere(['role' => ProjectUser::ROLE_DEVELOPER])
+            ->andWhere(['user_id' => $userId]);
+
     }
 
     /**

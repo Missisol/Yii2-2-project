@@ -22,8 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
   <p>
-    <?php if (!empty(ProjectUser::find()->andWhere(['user_id' => Yii::$app->user->id])
-        ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column())) : ?>
+    <?php if (!empty(ProjectUser::find()->byUserManager(Yii::$app->user->id)->column())) : ?>
       <?= Html::a('Create Task', ['create'], ['class' => 'btn btn-success']) ?>
     <?php endif; ?>
   </p>
