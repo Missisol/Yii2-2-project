@@ -51,26 +51,26 @@ class TaskService extends Component
     {
 
         if ($message == 'taken to work') {
-            $managers = ProjectUser::find()->where(['project_id' => $project->id])
-                ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column();
-            foreach ($managers as $id) {
-                $manager = User::findOne(ProjectUser::findOne($id)->user_id);
+            $projectManagerId = ProjectUser::find()->byProjectManager($project->id)
+                ->select('user_id')->column();
+            foreach ($projectManagerId as $id) {
+                $manager = User::findOne($id);
 
                 $this->triggerChangeTaskStatus($task, $user, $project, $manager, $message);
             }
         } else {
-            $managers = ProjectUser::find()->where(['project_id' => $project->id])
-                ->andWhere(['role' => ProjectUser::ROLE_MANAGER])->column();
-            foreach ($managers as $id) {
-                $manager = User::findOne(ProjectUser::findOne($id)->user_id);
+            $projectManagerId = ProjectUser::find()->byProjectManager($project->id)
+                ->select('user_id')->column();
+            foreach ($projectManagerId as $id) {
+                $manager = User::findOne($id);
 
                 $this->triggerChangeTaskStatus($task, $user, $project, $manager, $message);
             };
 
-            $tester = ProjectUser::find()->where(['project_id' => $project->id])
-                ->andWhere(['role' => ProjectUser::ROLE_TESTER])->column();
-            foreach ($tester as $id) {
-                $tester = User::findOne(ProjectUser::findOne($id)->user_id);
+            $projectTesterId = ProjectUser::find()->byProjectTester($project->id)
+                ->select('user_id')->column();
+            foreach ($projectTesterId as $id) {
+                $tester = User::findOne($id);
 
                 $this->triggerChangeTaskStatus($task, $user, $project, $tester, $message);
             }
@@ -112,23 +112,27 @@ class TaskService extends Component
     /**
      * @param Task $task
      * @param User $user
-     * @return Task
+     * @return bool
      */
     public function takeTask(Task $task, User $user)
     {
-        $task->started_at = mktime();
-        $task->executor_id = $user->id;
-        return $task;
+        $model = Task::findOne($task->id);
+        $model->started_at = mktime();
+        $model->executor_id = $user->id;
+
+        return $model->save();
     }
 
     /**
      * @param Task $task
-     * @return Task
+     * @return bool
      */
     public function completeTask(Task $task)
     {
-        $task->completed_at = mktime();
-        return $task;
+        $model = Task::findOne($task->id);
+        $model->completed_at = mktime();
+
+        return $model->save();
     }
 
 }
